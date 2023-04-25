@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
 import ErrorToast from '../../components/ErrorMessage';
-
+import ReactDatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 class TimePlanProject extends Component {
     constructor(props) {
         super(props);
         // 初始状态为第一个菜单项选中
         this.state = {
           text: "",
+          completion_time:new Date(),
+          start_time:new Date(),
           isVisible: false,
           listError: [],
+          item_description:'',
           individualDataList: [
             {
                 bill_type: "2",
@@ -17,7 +23,28 @@ class TimePlanProject extends Component {
                 currency: "",
                 Exchange: "",
               },
+          ],  quill_formats: [
+            "bold",
+            "italic",
+            "underline",
+            "strike",
+            "list",
+            "bullet",
+            "ordered",
+            "link",
+            "image",
+            "align",
           ],
+          quill_modules: {
+            toolbar: {
+              container: [
+                ["bold", "italic", "underline", "strike"],
+                [{ list: "bullet" }, { list: "ordered" }],
+                [{ align: [] }],
+                ["link", "image"],
+              ],
+            },
+          },
         };
       }
       
@@ -63,7 +90,8 @@ class TimePlanProject extends Component {
  }
 
   render() {
-    const { listError,individualDataList } = this.state;
+    
+    const {  quill_formats,item_description, quill_modules,listError,individualDataList } = this.state;
     const { isVisible } = this.props;
     if(!isVisible) return null
     return (
@@ -98,280 +126,213 @@ class TimePlanProject extends Component {
                         className="block text-gray-700 text-sm font-normal mb-2"
                         htmlFor="name"
                       >
-                        Order No.
+                       Project start time
                       </label>
-                      <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="name"
-                        type="text"
-                        placeholder="请输入您的姓名"
+                      <ReactDatePicker
+                       showIcon
+                       dateFormat="dd/MM/yyyy"
+                       className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+                       selected={this.state.start_time}
+                       onChange={this.handleDateChange}
                       />
+                               
                     </div>
                     <div className="w-full md:w-1/5 px-4 mb-4 md:mb-0">
                       <label
                         className="block text-gray-700 text-sm font-normal mb-2"
-                        htmlFor="email"
+                        htmlFor="name"
                       >
-                        Project Name
+                       Project completion time
                       </label>
-                      <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="email"
-                        type="email"
-                        placeholder="请输入您的邮箱"
+                      <ReactDatePicker
+                       showIcon
+                       dateFormat="dd/MM/yyyy"
+                       className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+                       selected={this.state.completion_time}
+                       onChange={this.handleDateChange}
                       />
+                               
                     </div>
-                    <div className="w-full md:w-1/5 px-4 mb-4 md:mb-0">
+                    <div className="w-full md:w-full px-4 py-5 mb-4 md:mb-0">
                       <label
                         className="block text-gray-700 text-sm font-normal mb-2"
                         htmlFor="date"
                       >
                         Project budget
                       </label>
-                      <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="email"
-                        type="email"
-                        placeholder="请输入您的邮箱"
-                      />
+                      <ReactQuill
+                  value={item_description}
+                  // onChange={this.handleChange}
+                  theme="snow"
+                  modules={quill_modules}
+                  formats={quill_formats}
+                  style={{ height: 200 }}
+                  className="w-auto pb-12"
+                />
                     </div>
-                    <div className="w-full md:w-1/5 px-4 mb-4 md:mb-0">
-                      <label
-                        className="block text-gray-700 text-sm font-normal mb-2"
-                        htmlFor="phone"
-                      >
-                        Exchange rate
-                      </label>
-                      <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="phone"
-                        type="tel"
-                        placeholder="请输入您的电话"
-                      />
-                    </div>
-                    <div className="w-full md:w-1/5 px-4 mb-4 md:mb-0">
-                      <label
-                        className="block text-gray-700 text-sm font-normal mb-2"
-                        htmlFor="date"
-                      >
-                        Date
-                      </label>
-                      <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="date"
-                        type="date"
-                      />
-                    </div>
+                 
                   </div>
 
                   <div className=" py-2 border-gray-100  border-b-4  border-dashed">
                     <span className="text-xl font-medium">
                       {" "}
                       <span className="px-2 iconfont icon-xiangmu1"></span>
-                      Customer Data
+                    
                     </span>
                   </div>
-                  <div className="flex flex-wrap  py-2   -mx-4 mb-4">
-                    <div className="w-full md:w-1/5 px-4 mb-4 md:mb-0">
-                      <label
-                        className="block text-gray-700 text-sm font-normal mb-2"
-                        htmlFor="name"
-                      >
-                        Customer Number
-                      </label>
-                      <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="name"
-                        type="text"
-                        placeholder="请输入您的姓名"
-                      />
-                    </div>
-                    <div className="w-full md:w-1/5 px-4 mb-4 md:mb-0">
-                      <label
-                        className="block text-gray-700 text-sm font-normal mb-2"
-                        htmlFor="email"
-                      >
-                        Customer name
-                      </label>
-                      <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="email"
-                        type="email"
-                        placeholder="请输入您的邮箱"
-                      />
-                    </div>
-                    <div className="w-full md:w-1/5 px-4 mb-4 md:mb-0">
-                      <label
-                        className="block text-gray-700 text-sm font-normal mb-2"
-                        htmlFor="date"
-                      >
-                        Customer Contact
-                      </label>
-                      <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="email"
-                        type="email"
-                        placeholder="请输入您的邮箱"
-                      />
-                    </div>
-                    <div className="w-full md:w-1/5 px-4 mb-4 md:mb-0">
-                      <label
-                        className="block text-gray-700 text-sm font-normal mb-2"
-                        htmlFor="phone"
-                      >
-                        Distribution FE
-                      </label>
-                      <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="phone"
-                        type="tel"
-                        placeholder="请输入您的电话"
-                      />
-                    </div>
-                  </div>
-
-                  <div className=" py-2 border-gray-100  border-b-4  border-dashed">
-                    <span className="text-xl font-medium">
-                      {" "}
-                      <span className="px-2 iconfont icon-xiangmu1"></span>
-                      Individual Invoices Per Order{" "}
-                      <span
-                        className="iconfont text-xl px-8 icon-xinzeng5  text-gray-400  hover:text-gray-900"
-                        onClick={this.addRecord}
-                      ></span>
-                    </span>
-                  </div>
-                  {individualDataList.map((individualDataItem, index) => (
-                    <div
-                      className="flex flex-wrap  py-2   -mx-4 mb-4"
-                      key={index}
-                    >
-                      <div className="w-full md:w-1/6 px-4 mb-4 md:mb-0">
-                        <label
-                          className="block text-gray-700 text-sm font-normal mb-2"
-                          htmlFor="name"
-                        >
-                          Date of invoice
-                        </label>
-                        <input
-                          value={individualDataItem.Date_of_invoice}
-                          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                          name="Date_of_invoice"
-                          type="text"
-                          onChange={(event) =>
-                            this.handleChange(event, index)
-                          }
-                          placeholder="请输入您的姓名"
-                        />
+                        {/* Consulting     Projekt Mng     Engineering     Simulation     Construktion   Miscellaneous      */}
+                        <div class="flex flex-wrap -mx-4 overflow-hidden bg-white shadow-md rounded-lg">
+                            <div class="w-1/6 px-4 py-2 overflow-hidden ">
+                              <div class="font-medium text-gray-700 mb-2 text-center">  Target Hours FE</div>
+                              <div class="flex flex-col divide-y divide-gray-200">
+                                <div class="flex items-center flex-wrap py-2">
+                                  <div class="text-sm px-2 w-2/4">Consulting</div>
+                                  <input class="w-full  w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+                                  
+                                </div>
+                                <div class="flex items-center flex-wrap py-2">
+                                <div class="text-sm w-2/4"> Projekt Mng</div>
+                                  <input class="w-full  w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+                                </div>
+                                <div class="flex items-center flex-wrap  py-2">
+                                   <div class="text-sm px-2 w-2/4">Engineering</div>
+                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+                                </div>
+                                <div class="flex items-center flex-wrap  py-2 ">
+                                  <div class="text-sm px-2 w-2/4">Simulation</div>
+                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+                                </div>
+                                <div class="flex items-center flex-wrap  py-2">
+                                <div class="text-sm px-2 w-2/4 ">Construktion</div>
+                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+                                </div>
+                                <div class="flex items-center flex-wrap  py-2">
+                                <div class="text-sm w-2/4 px-2">Miscellaneous</div>
+                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+                                </div>
+                              </div>
+                            </div>
+                            <div class="w-1/6 px-4 py-2 overflow-hidden ">
+                              <div class="font-medium text-gray-700 mb-2 text-center">  Target Hours FE</div>
+                              <div class="flex flex-col divide-y divide-gray-200">
+                                <div class="flex items-center flex-wrap py-2">
+                                  <div class="text-sm px-2 w-2/4">Consulting</div>
+                                  <input class="w-full  w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+                                  
+                                </div>
+                                <div class="flex items-center flex-wrap py-2">
+                                <div class="text-sm w-2/4"> Projekt Mng</div>
+                                  <input class="w-full  w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+                                </div>
+                                <div class="flex items-center flex-wrap  py-2">
+                                   <div class="text-sm px-2 w-2/4">Engineering</div>
+                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+                                </div>
+                                <div class="flex items-center flex-wrap  py-2 ">
+                                  <div class="text-sm px-2 w-2/4">Simulation</div>
+                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+                                </div>
+                                <div class="flex items-center flex-wrap  py-2">
+                                <div class="text-sm px-2 w-2/4 ">Construktion</div>
+                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+                                </div>
+                                <div class="flex items-center flex-wrap  py-2">
+                                <div class="text-sm w-2/4 px-2">Miscellaneous</div>
+                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+                                </div>
+                              </div>
+                            </div>
+                            <div class="w-1/6 px-4 py-2 overflow-hidden ">
+                              <div class="font-medium text-gray-700 mb-2 text-center">  Target Hours FE</div>
+                              <div class="flex flex-col divide-y divide-gray-200">
+                                <div class="flex items-center flex-wrap py-2">
+                                  <div class="text-sm px-2 w-2/4">Consulting</div>
+                                  <input class="w-full  w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+                                  
+                                </div>
+                                <div class="flex items-center flex-wrap py-2">
+                                <div class="text-sm w-2/4"> Projekt Mng</div>
+                                  <input class="w-full  w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+                                </div>
+                                <div class="flex items-center flex-wrap  py-2">
+                                   <div class="text-sm px-2 w-2/4">Engineering</div>
+                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+                                </div>
+                                <div class="flex items-center flex-wrap  py-2 ">
+                                  <div class="text-sm px-2 w-2/4">Simulation</div>
+                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+                                </div>
+                                <div class="flex items-center flex-wrap  py-2">
+                                <div class="text-sm px-2 w-2/4 ">Construktion</div>
+                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+                                </div>
+                                <div class="flex items-center flex-wrap  py-2">
+                                <div class="text-sm w-2/4 px-2">Miscellaneous</div>
+                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+                                </div>
+                              </div>
+                            </div>
+                            <div class="w-1/6 px-4 py-2 overflow-hidden ">
+                              <div class="font-medium text-gray-700 mb-2 text-center">  Target Hours FE</div>
+                              <div class="flex flex-col divide-y divide-gray-200">
+                                <div class="flex items-center flex-wrap py-2">
+                                  <div class="text-sm px-2 w-2/4">Consulting</div>
+                                  <input class="w-full  w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+                                  
+                                </div>
+                                <div class="flex items-center flex-wrap py-2">
+                                <div class="text-sm w-2/4"> Projekt Mng</div>
+                                  <input class="w-full  w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+                                </div>
+                                <div class="flex items-center flex-wrap  py-2">
+                                   <div class="text-sm px-2 w-2/4">Engineering</div>
+                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+                                </div>
+                                <div class="flex items-center flex-wrap  py-2 ">
+                                  <div class="text-sm px-2 w-2/4">Simulation</div>
+                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+                                </div>
+                                <div class="flex items-center flex-wrap  py-2">
+                                <div class="text-sm px-2 w-2/4 ">Construktion</div>
+                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+                                </div>
+                                <div class="flex items-center flex-wrap  py-2">
+                                <div class="text-sm w-2/4 px-2">Miscellaneous</div>
+                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+                                </div>
+                              </div>
+                            </div>
+                            <div class="w-1/6 px-4 py-2 overflow-hidden ">
+                              <div class="font-medium text-gray-700 mb-2 text-center">  Target Hours FE</div>
+                              <div class="flex flex-col divide-y divide-gray-200">
+                                <div class="flex items-center flex-wrap py-2">
+                                  <div class="text-sm px-2 w-2/4">Consulting</div>
+                                  <input class="w-full  w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+                                  
+                                </div>
+                                <div class="flex items-center flex-wrap py-2">
+                                <div class="text-sm w-2/4"> Projekt Mng</div>
+                                  <input class="w-full  w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+                                </div>
+                                <div class="flex items-center flex-wrap  py-2">
+                                   <div class="text-sm px-2 w-2/4">Engineering</div>
+                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+                                </div>
+                                <div class="flex items-center flex-wrap  py-2 ">
+                                  <div class="text-sm px-2 w-2/4">Simulation</div>
+                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+                                </div>
+                                <div class="flex items-center flex-wrap  py-2">
+                                <div class="text-sm px-2 w-2/4 ">Construktion</div>
+                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+                                </div>
+                                <div class="flex items-center flex-wrap  py-2">
+                                <div class="text-sm w-2/4 px-2">Miscellaneous</div>
+                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+                                </div>
+                              </div>
+                            </div>
                       </div>
-                      <div className="w-full md:w-1/6 px-4 mb-4 md:mb-0">
-                        <label
-                          className="block text-gray-700 text-sm font-normal mb-2"
-                          htmlFor="email"
-                        >
-                          Currency
-                        </label>
-                        <input
-                          value={individualDataItem.currency}
-                          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                       
-                          type="text"
-                          name="currency"
-                          onChange={(event) =>
-                            this.handleChange(event, index)
-                          }
-                          placeholder="请输入您的邮箱"
-                        />
-                      </div>
-                      <div className="w-full md:w-1/6 px-4 mb-4 md:mb-0">
-                        <label
-                          className="block text-gray-700 text-sm font-normal mb-2"
-                          htmlFor="date"
-                        >
-                          Exchange
-                        </label>
-                        <input
-                          value={individualDataItem.Exchange}
-                          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        
-                          type="text"
-                          name="Exchange"
-                          onChange={(event) =>
-                            this.handleChange(event, index)
-                          }
-                          placeholder="请输入您的邮箱"
-                        />
-                      </div>
-                      <div className="w-full md:w-1/6 px-4 mb-4 md:mb-0">
-                        <label
-                          className="block text-gray-700 text-sm font-normal mb-2"
-                          htmlFor="phone"
-                        >
-                          Distribution FE
-                        </label>
-                        <input
-                          value={individualDataItem.distributionfe}
-                          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                       
-                          type="text"
-                          name="distributionfe"
-                          onChange={(event) =>
-                            this.handleChange(event, index)
-                          }
-                          placeholder="请输入您的电话"
-                        />
-                      </div>
-                      <div className="w-full md:w-1/6 px-4 mb-4 md:mb-0">
-                        <label
-                          className="block text-gray-700 text-sm font-normal mb-2"
-                          htmlFor="date"
-                        >
-                          Bill type
-                        </label>
-                        <select
-                          onChange={(event) =>
-                            this.handleChange(event, index)
-                          }
-                          name="bill_type"
-                          value={individualDataItem.bill_type}
-                          className="block w-full py-3 px-4 pr-8 leading-tight text-gray-700 bg-white rounded-lg  focus:outline-none focus:shadow-outline-blue focus:border-blue-500"
-                        >
-                          <option className="bg-transparent border-0" value="1">
-                            {" "}
-                            Bill type
-                          </option>
-                          <option className="bg-transparent border-0" value="2">
-                            {" "}
-                            Anzahlung
-                          </option>
-                          <option className="bg-transparent border-0" value="3">
-                            {" "}
-                            Rechnung
-                          </option>
-                          <option className="bg-transparent border-0" value="4">
-                            {" "}
-                            Endrechnung
-                          </option>
-                        </select>
-                      </div>
-                      <div className="w-full md:w-1/6 px-4 mb-4 md:mb-0 text-center">
-                        <label
-                          className="block text-gray-700 text-sm font-normal mb-2"
-                          htmlFor="phone"
-                        >
-                          Delete Record
-                        </label>
-                        <div
-                          onClick={() => this.handleRemoveRecord(index)}
-                          className="text-gray-700 text-sm px-2.5 py-2 border border-blue-200  hover:border-dashed   hover:text-white    hover:bg-red-600  hover:"
-                        >
-                          <span className="iconfont icon-quxiao "></span>{" "}
-                          &nbsp;&nbsp; Delete
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-
                   <div className="flex justify-center">
                     <button
                       className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ErrorToast from '../../components/ErrorMessage';
-
+import ReactDatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 class CreateProject extends Component {
     constructor(props) {
         super(props);
@@ -9,6 +10,8 @@ class CreateProject extends Component {
           text: "",
           isVisible: false,
           listError: [],
+          selectedDate: null,
+          projectDate:'0000-00-00',
           individualDataList: [
             {
                 bill_type: "2",
@@ -62,6 +65,19 @@ class CreateProject extends Component {
     }))
  }
 
+ /************时间选择 */
+ 
+ handleDateChange=newDate =>{
+  const date = new Date(newDate);
+  const formattedDate = date.toLocaleDateString('en-GB', {day: '2-digit', month: '2-digit', year: 'numeric'});
+
+  const dateParts = formattedDate.split('/');
+  const dateObject = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
+  console.log(dateObject); // "16/08/2023"
+  this.setState({
+    selectedDate: dateObject
+  });
+}
   render() {
     const { listError,individualDataList } = this.state;
     const { isVisible } = this.props;
@@ -104,7 +120,7 @@ class CreateProject extends Component {
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         id="name"
                         type="text"
-                        placeholder="请输入您的姓名"
+                        placeholder="Enter Order No."
                       />
                     </div>
                     <div className="w-full md:w-1/5 px-4 mb-4 md:mb-0">
@@ -118,7 +134,7 @@ class CreateProject extends Component {
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         id="email"
                         type="email"
-                        placeholder="请输入您的邮箱"
+                        placeholder="Enter Project Name"
                       />
                     </div>
                     <div className="w-full md:w-1/5 px-4 mb-4 md:mb-0">
@@ -132,21 +148,21 @@ class CreateProject extends Component {
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         id="email"
                         type="email"
-                        placeholder="请输入您的邮箱"
+                        placeholder="Enter  Project budget"
                       />
                     </div>
                     <div className="w-full md:w-1/5 px-4 mb-4 md:mb-0">
                       <label
                         className="block text-gray-700 text-sm font-normal mb-2"
                         htmlFor="phone"
-                      >
-                        Exchange rate
+                      > 
+                       Exchange rate
                       </label>
                       <input
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         id="phone"
                         type="tel"
-                        placeholder="请输入您的电话"
+                        placeholder="Enter  Exchange rate"
                       />
                     </div>
                     <div className="w-full md:w-1/5 px-4 mb-4 md:mb-0">
@@ -156,11 +172,14 @@ class CreateProject extends Component {
                       >
                         Date
                       </label>
-                      <input
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="date"
-                        type="date"
+                      <ReactDatePicker
+                       showIcon
+                       dateFormat="dd/MM/yyyy"
+                       className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+                       selected={this.state.selectedDate}
+                       onChange={this.handleDateChange}
                       />
+                                  
                     </div>
                   </div>
 
