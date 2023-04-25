@@ -88,32 +88,45 @@ class TimePlanProject extends Component {
         }) 
     }))
  }
-
+ saveSingleTime=(type)=>{
+   alert('What you want to save is '+ type)
+ }
+ saveTimePlan=(type)=>{
+   alert('What you want to save All ')
+ }
   render() {
     
     const {  quill_formats,item_description, quill_modules,listError,individualDataList } = this.state;
     const { isVisible } = this.props;
     if(!isVisible) return null
     return (
-      <div className="fixed  bg-opacity-50 inset-0 z-50 overflow-auto bg-black-transparen overflow-y-auto">
+      <div className="fixed bg-black  bg-opacity-50 inset-0 z-50 overflow-auto bg-black-transparen overflow-y-auto">
         <div className="flex  items-center justify-center h-3/4  mt-2 min-h-screen">
           <div className="relative rounded-lg h-5/6 text-gray-800 rounded-lg w-4/5">
-            
             <div className="px-2 text-left">
                     <div className="w-full  mx-auto">
                       <form className="bg-white  rounded-lg px-8 pt-6 pb-8 mb-4">
-                      <div className="text-right flex py-3 px-8  bg-white">
-                    <div className="flex-grow h-16 text-center">
+                      <div className="text-right flex px-6  bg-white">
+                    <div className="subpixel-antialiased text-2xl font-semibold flex-grow h-16 text-center">
                        Project Time Plan 
                     </div>
-                    <div className="flex-none w-16 h-16 ...">
+                    
+                
+                    <div className="flex-none px-2 h-16 ...">
                       <span
-                        className="iconfont icon-guanbi1"
+                        className="iconfont icon-tijiao01 hover:text-green-900  text-2xl text-green-500"
+                        onClick={this.saveTimePlan}
+                      ></span>
+                    </div>
+                    <div className="flex-none px-1 h-16 ...">
+                      <span
+                        className="iconfont  text-2xl  text-red-500  hover:text-red-700 icon-shanchu3"
                         onClick={this.closeModal}
                       ></span>
                     </div>
+
                   </div>
-                  <div className=" py-2 border-gray-100  border-b-4  border-dashed">
+                  <div className=" py-1 border-gray-100  border-b-4  border-dashed">
                     <span className="text-xl font-medium">
                       {" "}
                       <span className="px-2 iconfont icon-xiangmu1"></span>
@@ -126,7 +139,7 @@ class TimePlanProject extends Component {
                         className="block text-gray-700 text-sm font-normal mb-2"
                         htmlFor="name"
                       >
-                       Project start time
+                       Start time
                       </label>
                       <ReactDatePicker
                        showIcon
@@ -142,7 +155,7 @@ class TimePlanProject extends Component {
                         className="block text-gray-700 text-sm font-normal mb-2"
                         htmlFor="name"
                       >
-                       Project completion time
+                       Completion time
                       </label>
                       <ReactDatePicker
                        showIcon
@@ -158,7 +171,7 @@ class TimePlanProject extends Component {
                         className="block text-gray-700 text-sm font-normal mb-2"
                         htmlFor="date"
                       >
-                        Project budget
+                        Descriptions
                       </label>
                       <ReactQuill
                   value={item_description}
@@ -181,166 +194,278 @@ class TimePlanProject extends Component {
                     </span>
                   </div>
                         {/* Consulting     Projekt Mng     Engineering     Simulation     Construktion   Miscellaneous      */}
-                        <div class="flex flex-wrap -mx-4 overflow-hidden bg-white shadow-md rounded-lg">
-                            <div class="w-1/6 px-4 py-2 overflow-hidden ">
-                              <div class="font-medium text-gray-700 mb-2 text-center">  Target Hours FE</div>
-                              <div class="flex flex-col divide-y divide-gray-200">
-                                <div class="flex items-center flex-wrap py-2">
-                                  <div class="text-sm px-2 w-2/4">Consulting</div>
-                                  <input class="w-full  w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
-                                  
+                        <div className="flex flex-wrap -mx-4 overflow-hidden   divide-x-4 divide-gray-100  divide-dashed bg-white shadow-md rounded-lg">
+                            <div className="w-1/6 px-4 py-2 overflow-hidden" >
+                              <div className="font-medium text-sm  text-gray-700 mb-2 text-center"> 
+                              <div className="flex items-center flex-wrap py-2" title="Target Hours FE">
+                                <div className="text-xs truncate text-left  w-4/5"  >Target Hours FE</div>
+                                   <div  className=' w-1/5'> 
+                                  <span className="iconfont icon-ziyuanbaosongtijiaoxiaohe hover:text-green-900  text-2xl text-green-500"   onClick={() => this.saveSingleTime('targetHours')}></span>
+                                  </div>
                                 </div>
-                                <div class="flex items-center flex-wrap py-2">
-                                <div class="text-sm w-2/4"> Projekt Mng</div>
-                                  <input class="w-full  w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+
+
+                              </div>
+                              <div className="flex flex-col divide-y divide-gray-200">
+                                <div className="flex items-center flex-wrap py-2" title="Consulting Hours">
+                                  <div className="text-xs truncate text-left  w-2/4"  >Consulting</div>
+                                  <div  className=' w-2/4'> 
+                                    <input className="w-full bg-transparent outline-none px-2" type="text"  placeholder="eg: 2" />
+                                  </div>
                                 </div>
-                                <div class="flex items-center flex-wrap  py-2">
-                                   <div class="text-sm px-2 w-2/4">Engineering</div>
-                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
-                                </div>
-                                <div class="flex items-center flex-wrap  py-2 ">
-                                  <div class="text-sm px-2 w-2/4">Simulation</div>
-                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
-                                </div>
-                                <div class="flex items-center flex-wrap  py-2">
-                                <div class="text-sm px-2 w-2/4 ">Construktion</div>
-                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
-                                </div>
-                                <div class="flex items-center flex-wrap  py-2">
-                                <div class="text-sm w-2/4 px-2">Miscellaneous</div>
-                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
-                                </div>
+                                <div className="flex items-center flex-wrap py-2" title="Projekt Mng Hours" >
+                                <div className="text-xs truncate text-left w-2/4" > Projekt Mng</div>
+                                <div  className=' w-2/4'> 
+                                  <input className="w-full  w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="eg: 2" />
+                                </div></div>
+                                <div className="flex items-center flex-wrap  py-2"   title="Engineering Hours">
+                                   <div className="text-xs truncate text-left   w-2/4">Engineering</div>
+                                   <div  className=' w-2/4'> 
+                                  <input className="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="eg: 2" />
+                                </div></div>
+                                <div className="flex items-center flex-wrap  py-2 "  title="Simulation Hours">
+                                  <div className="text-xs truncate text-left   w-2/4">Simulation</div>
+                                  <div  className=' w-2/4'> 
+                                  <input className="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="eg: 2" />
+                                </div></div>
+                                <div className="flex items-center flex-wrap  py-2"  title="Construktion Hours">
+                                <div className="text-xs truncate text-left   w-2/4">Construktion</div>
+                                <div  className=' w-2/4'> 
+                                  <input className="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="eg: 2" />
+                                </div></div>
+                                <div className="flex items-center flex-wrap  py-2"  title="Miscellaneous Hours">
+                                <div className="text-xs truncate text-left   w-2/4">Miscellaneous </div>
+                                <div  className='w-2/4'> 
+                                  <input className="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="eg: 2" />
+                                  </div></div>
                               </div>
                             </div>
-                            <div class="w-1/6 px-4 py-2 overflow-hidden ">
-                              <div class="font-medium text-gray-700 mb-2 text-center">  Target Hours FE</div>
-                              <div class="flex flex-col divide-y divide-gray-200">
-                                <div class="flex items-center flex-wrap py-2">
-                                  <div class="text-sm px-2 w-2/4">Consulting</div>
-                                  <input class="w-full  w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
-                                  
+                        {/* ******************************************Target Hours FENA************ */}
+                            <div className="w-1/6 px-4 py-2 overflow-hidden" >
+                              <div className="font-medium text-sm  text-gray-700 mb-2 text-center"> 
+                              <div className="flex items-center flex-wrap py-2" title="Target Hours FE">
+                                <div className="text-xs truncate text-left  w-4/5"  >Target Hours FENA</div>
+                                   <div  className=' w-1/5'> 
+                                  <span className="iconfont icon-ziyuanbaosongtijiaoxiaohe hover:text-green-900  text-2xl text-green-500"   onClick={() => this.saveSingleTime('targetHoursFENA')}></span>
+                                  </div>
                                 </div>
-                                <div class="flex items-center flex-wrap py-2">
-                                <div class="text-sm w-2/4"> Projekt Mng</div>
-                                  <input class="w-full  w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+
+
+                              </div>
+                              <div className="flex flex-col divide-y divide-gray-200">
+                                <div className="flex items-center flex-wrap py-2" title="Consulting Hours">
+                                  <div className="text-xs truncate text-left  w-2/4"  >Consulting</div>
+                                  <div  className=' w-2/4'> 
+                                    <input className="w-full bg-transparent outline-none px-2" type="text"  placeholder="eg: 2" />
+                                  </div>
                                 </div>
-                                <div class="flex items-center flex-wrap  py-2">
-                                   <div class="text-sm px-2 w-2/4">Engineering</div>
-                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
-                                </div>
-                                <div class="flex items-center flex-wrap  py-2 ">
-                                  <div class="text-sm px-2 w-2/4">Simulation</div>
-                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
-                                </div>
-                                <div class="flex items-center flex-wrap  py-2">
-                                <div class="text-sm px-2 w-2/4 ">Construktion</div>
-                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
-                                </div>
-                                <div class="flex items-center flex-wrap  py-2">
-                                <div class="text-sm w-2/4 px-2">Miscellaneous</div>
-                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
-                                </div>
+                                <div className="flex items-center flex-wrap py-2" title="Projekt Mng Hours" >
+                                <div className="text-xs truncate text-left w-2/4" > Projekt Mng</div>
+                                <div  className=' w-2/4'> 
+                                  <input className="w-full  w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="eg: 2" />
+                                </div></div>
+                                <div className="flex items-center flex-wrap  py-2"   title="Engineering Hours">
+                                   <div className="text-xs truncate text-left   w-2/4">Engineering</div>
+                                   <div  className=' w-2/4'> 
+                                  <input className="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="eg: 2" />
+                                </div></div>
+                                <div className="flex items-center flex-wrap  py-2 "  title="Simulation Hours">
+                                  <div className="text-xs truncate text-left   w-2/4">Simulation</div>
+                                  <div  className=' w-2/4'> 
+                                  <input className="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="eg: 2" />
+                                </div></div>
+                                <div className="flex items-center flex-wrap  py-2"  title="Construktion Hours">
+                                <div className="text-xs truncate text-left   w-2/4">Construktion</div>
+                                <div  className=' w-2/4'> 
+                                  <input className="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="eg: 2" />
+                                </div></div>
+                                <div className="flex items-center flex-wrap  py-2"  title="Miscellaneous Hours">
+                                <div className="text-xs truncate text-left   w-2/4">Miscellaneous </div>
+                                <div  className='w-2/4'> 
+                                  <input className="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="eg: 2" />
+                                  </div></div>
                               </div>
                             </div>
-                            <div class="w-1/6 px-4 py-2 overflow-hidden ">
-                              <div class="font-medium text-gray-700 mb-2 text-center">  Target Hours FE</div>
-                              <div class="flex flex-col divide-y divide-gray-200">
-                                <div class="flex items-center flex-wrap py-2">
-                                  <div class="text-sm px-2 w-2/4">Consulting</div>
-                                  <input class="w-full  w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
-                                  
+                        {/* *************************************FEJ***************** */}
+                            <div className="w-1/6 px-4 py-2 overflow-hidden" >
+                              <div className="font-medium text-sm  text-gray-700 mb-2 text-center"> 
+                              <div className="flex items-center flex-wrap py-2" title="Target Hours FE">
+                                <div className="text-xs truncate text-left  w-4/5"  >Target Hours FEJ</div>
+                                   <div  className=' w-1/5'> 
+                                  <span className="iconfont icon-ziyuanbaosongtijiaoxiaohe hover:text-green-900  text-2xl text-green-500"   onClick={() => this.saveSingleTime('targetHoursFEJ')}></span>
+                                  </div>
                                 </div>
-                                <div class="flex items-center flex-wrap py-2">
-                                <div class="text-sm w-2/4"> Projekt Mng</div>
-                                  <input class="w-full  w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+
+
+                              </div>
+                              <div className="flex flex-col divide-y divide-gray-200">
+                                <div className="flex items-center flex-wrap py-2" title="Consulting Hours">
+                                  <div className="text-xs truncate text-left  w-2/4"  >Consulting</div>
+                                  <div  className=' w-2/4'> 
+                                    <input className="w-full bg-transparent outline-none px-2" type="text"  placeholder="eg: 2" />
+                                  </div>
                                 </div>
-                                <div class="flex items-center flex-wrap  py-2">
-                                   <div class="text-sm px-2 w-2/4">Engineering</div>
-                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
-                                </div>
-                                <div class="flex items-center flex-wrap  py-2 ">
-                                  <div class="text-sm px-2 w-2/4">Simulation</div>
-                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
-                                </div>
-                                <div class="flex items-center flex-wrap  py-2">
-                                <div class="text-sm px-2 w-2/4 ">Construktion</div>
-                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
-                                </div>
-                                <div class="flex items-center flex-wrap  py-2">
-                                <div class="text-sm w-2/4 px-2">Miscellaneous</div>
-                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
-                                </div>
+                                <div className="flex items-center flex-wrap py-2" title="Projekt Mng Hours" >
+                                <div className="text-xs truncate text-left w-2/4" > Projekt Mng</div>
+                                <div  className=' w-2/4'> 
+                                  <input className="w-full  w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="eg: 2" />
+                                </div></div>
+                                <div className="flex items-center flex-wrap  py-2"   title="Engineering Hours">
+                                   <div className="text-xs truncate text-left   w-2/4">Engineering</div>
+                                   <div  className=' w-2/4'> 
+                                  <input className="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="eg: 2" />
+                                </div></div>
+                                <div className="flex items-center flex-wrap  py-2 "  title="Simulation Hours">
+                                  <div className="text-xs truncate text-left   w-2/4">Simulation</div>
+                                  <div  className=' w-2/4'> 
+                                  <input className="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="eg: 2" />
+                                </div></div>
+                                <div className="flex items-center flex-wrap  py-2"  title="Construktion Hours">
+                                <div className="text-xs truncate text-left   w-2/4">Construktion</div>
+                                <div  className=' w-2/4'> 
+                                  <input className="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="eg: 2" />
+                                </div></div>
+                                <div className="flex items-center flex-wrap  py-2"  title="Miscellaneous Hours">
+                                <div className="text-xs truncate text-left   w-2/4">Miscellaneous </div>
+                                <div  className='w-2/4'> 
+                                  <input className="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="eg: 2" />
+                                  </div></div>
                               </div>
                             </div>
-                            <div class="w-1/6 px-4 py-2 overflow-hidden ">
-                              <div class="font-medium text-gray-700 mb-2 text-center">  Target Hours FE</div>
-                              <div class="flex flex-col divide-y divide-gray-200">
-                                <div class="flex items-center flex-wrap py-2">
-                                  <div class="text-sm px-2 w-2/4">Consulting</div>
-                                  <input class="w-full  w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
-                                  
+                        {/* ******************************************************Fe China */}
+                            <div className="w-1/6 px-4 py-2 overflow-hidden" >
+                              <div className="font-medium text-sm  text-gray-700 mb-2 text-center"> 
+                              <div className="flex items-center flex-wrap py-2" title="Target Hours FE">
+                                <div className="text-xs truncate text-left  w-4/5"  >Target Hours  FE China</div>
+                                   <div  className=' w-1/5'> 
+                                  <span className="iconfont icon-ziyuanbaosongtijiaoxiaohe hover:text-green-900  text-2xl text-green-500"   onClick={() => this.saveSingleTime('targetHours FE China')}></span>
+                                  </div>
                                 </div>
-                                <div class="flex items-center flex-wrap py-2">
-                                <div class="text-sm w-2/4"> Projekt Mng</div>
-                                  <input class="w-full  w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+
+
+                              </div>
+                              <div className="flex flex-col divide-y divide-gray-200">
+                                <div className="flex items-center flex-wrap py-2" title="Consulting Hours">
+                                  <div className="text-xs truncate text-left  w-2/4"  >Consulting</div>
+                                  <div  className=' w-2/4'> 
+                                    <input className="w-full bg-transparent outline-none px-2" type="text"  placeholder="eg: 2" />
+                                  </div>
                                 </div>
-                                <div class="flex items-center flex-wrap  py-2">
-                                   <div class="text-sm px-2 w-2/4">Engineering</div>
-                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
-                                </div>
-                                <div class="flex items-center flex-wrap  py-2 ">
-                                  <div class="text-sm px-2 w-2/4">Simulation</div>
-                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
-                                </div>
-                                <div class="flex items-center flex-wrap  py-2">
-                                <div class="text-sm px-2 w-2/4 ">Construktion</div>
-                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
-                                </div>
-                                <div class="flex items-center flex-wrap  py-2">
-                                <div class="text-sm w-2/4 px-2">Miscellaneous</div>
-                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
-                                </div>
+                                <div className="flex items-center flex-wrap py-2" title="Projekt Mng Hours" >
+                                <div className="text-xs truncate text-left w-2/4" > Projekt Mng</div>
+                                <div  className=' w-2/4'> 
+                                  <input className="w-full  w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="eg: 2" />
+                                </div></div>
+                                <div className="flex items-center flex-wrap  py-2"   title="Engineering Hours">
+                                   <div className="text-xs truncate text-left   w-2/4">Engineering</div>
+                                   <div  className=' w-2/4'> 
+                                  <input className="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="eg: 2" />
+                                </div></div>
+                                <div className="flex items-center flex-wrap  py-2 "  title="Simulation Hours">
+                                  <div className="text-xs truncate text-left   w-2/4">Simulation</div>
+                                  <div  className=' w-2/4'> 
+                                  <input className="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="eg: 2" />
+                                </div></div>
+                                <div className="flex items-center flex-wrap  py-2"  title="Construktion Hours">
+                                <div className="text-xs truncate text-left   w-2/4">Construktion</div>
+                                <div  className=' w-2/4'> 
+                                  <input className="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="eg: 2" />
+                                </div></div>
+                                <div className="flex items-center flex-wrap  py-2"  title="Miscellaneous Hours">
+                                <div className="text-xs truncate text-left   w-2/4">Miscellaneous </div>
+                                <div  className='w-2/4'> 
+                                  <input className="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="eg: 2" />
+                                  </div></div>
                               </div>
                             </div>
-                            <div class="w-1/6 px-4 py-2 overflow-hidden ">
-                              <div class="font-medium text-gray-700 mb-2 text-center">  Target Hours FE</div>
-                              <div class="flex flex-col divide-y divide-gray-200">
-                                <div class="flex items-center flex-wrap py-2">
-                                  <div class="text-sm px-2 w-2/4">Consulting</div>
-                                  <input class="w-full  w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
-                                  
+                        {/* ******************************************************  FE XX*/}
+                            <div className="w-1/6 px-4 py-2 overflow-hidden" >
+                              <div className="font-medium text-sm  text-gray-700 mb-2 text-center"> 
+                              <div className="flex items-center flex-wrap py-2" title="Target Hours FE">
+                                <div className="text-xs truncate text-left  w-4/5"  >Target Hours FE</div>
+                                   <div  className=' w-1/5'> 
+                                  <span className="iconfont icon-ziyuanbaosongtijiaoxiaohe hover:text-green-900  text-2xl text-green-500"   onClick={() => this.saveSingleTime('targetHours FE XX')}></span>
+                                  </div>
                                 </div>
-                                <div class="flex items-center flex-wrap py-2">
-                                <div class="text-sm w-2/4"> Projekt Mng</div>
-                                  <input class="w-full  w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
+
+
+                              </div>
+                              <div className="flex flex-col divide-y divide-gray-200">
+                                <div className="flex items-center flex-wrap py-2" title="Consulting Hours">
+                                  <div className="text-xs truncate text-left  w-2/4"  >Consulting</div>
+                                  <div  className=' w-2/4'> 
+                                    <input className="w-full bg-transparent outline-none px-2" type="text"  placeholder="eg: 2" />
+                                  </div>
                                 </div>
-                                <div class="flex items-center flex-wrap  py-2">
-                                   <div class="text-sm px-2 w-2/4">Engineering</div>
-                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
-                                </div>
-                                <div class="flex items-center flex-wrap  py-2 ">
-                                  <div class="text-sm px-2 w-2/4">Simulation</div>
-                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
-                                </div>
-                                <div class="flex items-center flex-wrap  py-2">
-                                <div class="text-sm px-2 w-2/4 ">Construktion</div>
-                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
-                                </div>
-                                <div class="flex items-center flex-wrap  py-2">
-                                <div class="text-sm w-2/4 px-2">Miscellaneous</div>
-                                  <input class="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="Cell 2" />
-                                </div>
+                                <div className="flex items-center flex-wrap py-2" title="Projekt Mng Hours" >
+                                <div className="text-xs truncate text-left w-2/4" > Projekt Mng</div>
+                                <div  className=' w-2/4'> 
+                                  <input className="w-full  w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="eg: 2" />
+                                </div></div>
+                                <div className="flex items-center flex-wrap  py-2"   title="Engineering Hours">
+                                   <div className="text-xs truncate text-left   w-2/4">Engineering</div>
+                                   <div  className=' w-2/4'> 
+                                  <input className="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="eg: 2" />
+                                </div></div>
+                                <div className="flex items-center flex-wrap  py-2 "  title="Simulation Hours">
+                                  <div className="text-xs truncate text-left   w-2/4">Simulation</div>
+                                  <div  className=' w-2/4'> 
+                                  <input className="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="eg: 2" />
+                                </div></div>
+                                <div className="flex items-center flex-wrap  py-2"  title="Construktion Hours">
+                                <div className="text-xs truncate text-left   w-2/4">Construktion</div>
+                                <div  className=' w-2/4'> 
+                                  <input className="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="eg: 2" />
+                                </div></div>
+                                <div className="flex items-center flex-wrap  py-2"  title="Miscellaneous Hours">
+                                <div className="text-xs truncate text-left   w-2/4">Miscellaneous </div>
+                                <div  className='w-2/4'> 
+                                  <input className="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="eg: 2" />
+                                  </div></div>
                               </div>
                             </div>
+                        {/* ******************************************************Material ext. Serv.                */}
+                            <div className="w-1/6 px-4 py-2 overflow-hidden" >
+                              <div className="font-medium text-sm  text-gray-700 mb-2 text-center"> 
+                              <div className="flex items-center flex-wrap py-2" title="Target Hours FE">
+                                <div className="text-xs truncate text-left font-semibold w-4/5"  >Target Budget</div>
+                                   <div  className=' w-1/5'> 
+                                  <span className="iconfont icon-ziyuanbaosongtijiaoxiaohe hover:text-green-900  text-2xl text-green-500"   onClick={() => this.saveSingleTime('targetHours')}></span>
+                                  </div>
+                                </div>
+
+                              </div>
+                              <div className="flex flex-col divide-y divide-gray-200">
+                                <div className="flex items-center flex-wrap py-2" title="Material Hours">
+                                  <div className="text-xs  truncate text-left  w-2/4"  >Material</div>
+                                  <div  className=' w-2/4'> 
+                                    <input className="w-full bg-transparent outline-none px-2" type="text"  placeholder="eg: 2" />
+                                  </div>
+                                </div>
+                                <div className="flex items-center flex-wrap py-2" title="ext. Serv.  Hours" >
+                                <div className="text-xs truncate text-left w-2/4" > ext. Serv. </div>
+                                <div  className=' w-2/4'> 
+                                  <input className="w-full  w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="eg: 2" />
+                                </div></div>
+                                <div className="flex items-center flex-wrap  py-2 "  title="Testing Hours">
+                                  <div className="text-xs truncate text-left   w-2/4">Testing</div>
+                                  <div  className=' w-2/4'> 
+                                  <input className="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="eg: 2" />
+                                </div></div>
+                                <div className="flex items-center flex-wrap  py-2"  title="Travel exp Hours">
+                                <div className="text-xs truncate text-left   w-2/4"> Travel exp </div>
+                                <div  className=' w-2/4'> 
+                                  <input className="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="eg: 2" />
+                                </div></div>
+                                <div className="flex items-center flex-wrap  py-2"  title="Miscellaneous Hours">
+                                <div className="text-xs truncate text-left   w-2/4">Miscellaneous </div>
+                                <div  className='w-2/4'> 
+                                  <input className="w-full w-2/4 bg-transparent outline-none  px-2" type="text" placeholder="eg: 2" />
+                                  </div></div>
+                              </div>
+                            </div>
+                          
                       </div>
-                  <div className="flex justify-center">
-                    <button
-                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                      type="submit"
-                    >
-                      提交
-                    </button>
-                  </div>
                 </form>
               </div>
             </div>

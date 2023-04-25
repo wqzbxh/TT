@@ -90,7 +90,7 @@ this.setState({
   render() {
     const {expandedRows,dataList} = this.state
     return (
-      <div className="overflow-y-auto md:mx-auto">
+      <div className="overflow-y-auto md:mx-auto  rounded-md  shadow-md">
         <div className="flex flex-wrap text-white rounded-lg">
           <div className="flex-none w-full sm:w-1/4 h-16 flex text-center items-center">
             <h1 className=" font-bold text-2xl text-gray-700">Projects </h1>
@@ -136,27 +136,27 @@ this.setState({
         </div>
         <div className="py-3"></div>
         <div className="overflow-x-auto bg-white ">
-          <table className="text-center  table-auto min-w-full divide-y divide-gray-200">
+          <table className="text-left table-auto min-w-full divide-y divide-gray-200">
             <thead>
-              <tr className=" bg-gray-900 text-xs">
-                <th  scope="col"    className="px-6 py-3 font-semibold text-center text-white uppercase tracking-wider" > Order No. </th>
+              <tr className="  text-xs">
+                <th  scope="col"    className="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider" > Order No. </th>
              
-                <th  scope="col"    className="px-6 py-3 font-semibold text-center text-white uppercase tracking-wider" > Project. </th>
+                <th  scope="col"    className="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider" > Project. </th>
              
-                <th  scope="col"    className="px-6 py-3 font-semibold text-center text-white uppercase tracking-wider" > Customer. </th>
+                <th  scope="col"    className="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider" > Customer. </th>
              
-                <th  scope="col"    className="px-6 py-3 font-semibold text-center text-white uppercase tracking-wider" > Distributen FW.</th>
-                <th  scope="col"    className="px-6 py-3 font-semibold text-center text-white uppercase tracking-wider" > Amount. </th>
+                <th  scope="col"    className="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider" > Distributen FW.</th>
+                <th  scope="col"    className="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider" > Amount. </th>
              
                 <th
                   scope="col"
-                  className="px-6 py-3 font-semibold text-center  text-white  uppercase tracking-wider"
+                  className="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider"
                 >
                   Action.
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-200">
+            <tbody className="divide-y text-sm  font-extralight  divide-gray-200">
               {dataList.map((item, index) => {
                 return (
                   <React.Fragment key={item.id}>

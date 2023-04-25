@@ -83,25 +83,37 @@ class CreateProject extends Component {
     const { isVisible } = this.props;
     if(!isVisible) return null
     return (
-      <div className="fixed  bg-opacity-50 inset-0 z-50 overflow-auto bg-black-transparen overflow-y-auto">
+      <div className="fixed bg-black bg-opacity-50 inset-0 z-50 overflow-auto bg-black-transparen overflow-y-auto">
         <div className="flex items-center justify-center  h-3/4  mt-2 min-h-screen">
           <div className="relative h-5/6 text-gray-800 rounded-lg w-4/5">
            
             <div className="px-2 text-left">
                 <div className="w-full  mx-auto">
                     <form className="bg-white shadow-lg rounded-lg px-8 pt-6 pb-8 mb-4">
-                    <div className="text-right flex py-3 px-8  bg-white">
-                <div className="flex-grow h-16 text-center">
+               
+
+            <div className="text-right flex px-6  bg-white">
+                    <div className="subpixel-antialiased text-2xl font-semibold flex-grow h-16 text-center">
                     Create New Project
-                </div>
-                <div className="flex-none w-16 h-16 ...">
-                    <span
-                    className="iconfont icon-guanbi1"
-                    onClick={this.closeModal}
-                    ></span>
-                </div>
-            </div>
-                  <div className=" py-2 border-gray-100  border-b-4  border-dashed">
+                    </div>
+                    
+                
+                    <div className="flex-none px-2 h-16 ...">
+                      <span
+                        className="iconfont icon-tijiao01 hover:text-green-900  text-2xl text-green-500"
+                        onClick={this.saveTimePlan}
+                      ></span>
+                    </div>
+                    <div className="flex-none px-1 h-16 ...">
+                      <span
+                        className="iconfont  text-2xl  text-red-500  hover:text-red-700 icon-shanchu3"
+                        onClick={this.closeModal}
+                      ></span>
+                    </div>
+
+                  </div>
+
+                  <div className=" py-1 border-gray-100  border-b-4  border-dashed">
                     <span className="text-xl font-medium">
                       {" "}
                       <span className="px-2 iconfont icon-xiangmu1"></span>
@@ -202,7 +214,7 @@ class CreateProject extends Component {
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         id="name"
                         type="text"
-                        placeholder="请输入您的姓名"
+                        placeholder=""
                       />
                     </div>
                     <div className="w-full md:w-1/5 px-4 mb-4 md:mb-0">
@@ -216,7 +228,7 @@ class CreateProject extends Component {
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         id="email"
                         type="email"
-                        placeholder="请输入您的邮箱"
+                        placeholder=""
                       />
                     </div>
                     <div className="w-full md:w-1/5 px-4 mb-4 md:mb-0">
@@ -230,7 +242,7 @@ class CreateProject extends Component {
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         id="email"
                         type="email"
-                        placeholder="请输入您的邮箱"
+                        placeholder=""
                       />
                     </div>
                     <div className="w-full md:w-1/5 px-4 mb-4 md:mb-0">
@@ -244,7 +256,7 @@ class CreateProject extends Component {
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         id="phone"
                         type="tel"
-                        placeholder="请输入您的电话"
+                        placeholder=""
                       />
                     </div>
                   </div>
@@ -280,7 +292,7 @@ class CreateProject extends Component {
                           onChange={(event) =>
                             this.handleChange(event, index)
                           }
-                          placeholder="请输入您的姓名"
+                          placeholder=""
                         />
                       </div>
                       <div className="w-full md:w-1/6 px-4 mb-4 md:mb-0">
@@ -299,7 +311,7 @@ class CreateProject extends Component {
                           onChange={(event) =>
                             this.handleChange(event, index)
                           }
-                          placeholder="请输入您的邮箱"
+                          placeholder=""
                         />
                       </div>
                       <div className="w-full md:w-1/6 px-4 mb-4 md:mb-0">
@@ -318,7 +330,7 @@ class CreateProject extends Component {
                           onChange={(event) =>
                             this.handleChange(event, index)
                           }
-                          placeholder="请输入您的邮箱"
+                          placeholder=""
                         />
                       </div>
                       <div className="w-full md:w-1/6 px-4 mb-4 md:mb-0">
@@ -337,7 +349,7 @@ class CreateProject extends Component {
                           onChange={(event) =>
                             this.handleChange(event, index)
                           }
-                          placeholder="请输入您的电话"
+                          placeholder=""
                         />
                       </div>
                       <div className="w-full md:w-1/6 px-4 mb-4 md:mb-0">
@@ -391,14 +403,6 @@ class CreateProject extends Component {
                     </div>
                   ))}
 
-                  <div className="flex justify-center">
-                    <button
-                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                      type="submit"
-                    >
-                      提交
-                    </button>
-                  </div>
                 </form>
               </div>
             </div>

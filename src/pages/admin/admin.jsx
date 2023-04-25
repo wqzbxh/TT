@@ -6,6 +6,7 @@ import Settings from "../setting/setting";
 import LeftNav from "../../components/left/left-nav";
 import './admin.css'
 import Project from "../project/project";
+import Track from "../tracker/track";
 class Admin extends Component {
     constructor(props) {
         super(props);
@@ -51,6 +52,7 @@ class Admin extends Component {
                                 <Route path="/admin" element={<Home />} />
                                 <Route path="/home" element={<Home />} />
                                 <Route path="/setting" element={<Settings />} />
+                                <Route path="/tracker" element={<Track />} />
                                 <Route path="/projects" element={<Project />} />
                            {/*  <Route path="/orga" element={<Orga />} />
                             <Route path="/create_project" element={<CreateProject />} />

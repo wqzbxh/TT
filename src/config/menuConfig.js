@@ -5,9 +5,9 @@ const menuItems = [
         href: "/home",
     },
     {
-        icon: "tongji",
-        label: "Statistics",
-        href: "#",
+        icon: "zhengzaijinhang1",
+        label: "TimeTracker",
+        href: "/tracker",
     },
     {
         icon: "xiangmu2",
@@ -15,13 +15,13 @@ const menuItems = [
         href: "/projects",
     },
     {
-        icon: "jihua2",
-        label: "Planne",
+        icon: "tongji",
+        label: "Statistics",
         href: "#",
     },
     {
-        icon: "bianji2",
-        label: "TimeMaste",
+        icon: "jihua2",
+        label: "Planne",
         href: "#",
     },
     {

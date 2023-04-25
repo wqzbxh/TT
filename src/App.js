@@ -7,6 +7,7 @@ import Admin from './pages/admin/admin';
 import Home from './pages/home/home';
 import Settings from './pages/setting/setting';
 import Project from './pages/project/project';
+import Track from './pages/tracker/track';
 
 
 export default class App extends Component{
@@ -20,6 +21,7 @@ export default class App extends Component{
                         <Route path="/admin" element={<Home />} />
                         <Route path="/home" element={<Home />} />
                         <Route path="/setting" element={<Settings />} />
+                        <Route path="/tracker" element={<Track />} />
                         <Route path="/projects" element={<Project />} />
                   </Route>
               </Routes>

@@ -6,6 +6,62 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "571726",
+      "name": "删除",
+      "font_class": "shanchu3",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
+    {
+      "icon_id": "572419",
+      "name": "提交-01",
+      "font_class": "tijiao01",
+      "unicode": "e641",
+      "unicode_decimal": 58945
+    },
+    {
+      "icon_id": "683289",
+      "name": "提交",
+      "font_class": "tijiao",
+      "unicode": "e666",
+      "unicode_decimal": 58982
+    },
+    {
+      "icon_id": "754772",
+      "name": "资源报送-提交校核",
+      "font_class": "ziyuanbaosongtijiaoxiaohe",
+      "unicode": "e658",
+      "unicode_decimal": 58968
+    },
+    {
+      "icon_id": "6907913",
+      "name": "提交成功",
+      "font_class": "tijiaochenggong",
+      "unicode": "e72f",
+      "unicode_decimal": 59183
+    },
+    {
+      "icon_id": "16290374",
+      "name": "提交&确认",
+      "font_class": "tijiaoqueren",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
+      "icon_id": "26361674",
+      "name": "提示错误",
+      "font_class": "a-shouye-fuben_tishicuowu",
+      "unicode": "e62d",
+      "unicode_decimal": 58925
+    },
+    {
+      "icon_id": "26361680",
+      "name": "提交成功",
+      "font_class": "a-shouye-fuben_tijiaochenggong",
+      "unicode": "e632",
+      "unicode_decimal": 58930
+    },
+    {
       "icon_id": "1838918",
       "name": "新增",
       "font_class": "xinzeng4",

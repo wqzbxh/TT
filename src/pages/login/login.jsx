@@ -70,7 +70,7 @@ class Login extends Component {
                 const username = result.data;
                 memoryUtils.user = username; 
                 localstorageUnits.saveUser(username)
-                this.props.navigate('/');
+                this.props.navigate('/tracker');
             }else{
                 //登陆失败
                 console.log(result.msg)
