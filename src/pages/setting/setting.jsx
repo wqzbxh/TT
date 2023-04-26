@@ -5,7 +5,7 @@ class Settings extends Component {
     return (
       <div className="bg-gray-100 ">
      
-      </div>
+      </div>  
     );
   }
 }

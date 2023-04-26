@@ -33,13 +33,14 @@ class LeftNav extends Component {
   
 
     return (
-        <div className="relative  rounded-3xl bg-gradient-to-b from-gray-900 to-gray-900  to-gray-800  text-center bg-white w-full lg:w-48  py-6 shadow-lg lg:sticky lg:top-0 lg:h-screen">
-        <h2 className="text-sm font-bold  mb-4  text-white">TimeTrackerASC Visio</h2>
+        // <div className="relative  rounded-3xl bg-gradient-to-b from-gray-900 to-gray-900  to-gray-800  text-center bg-white w-full lg:w-48  py-6 shadow-lg lg:sticky lg:top-0 lg:h-screen">
+        <div className="relative  text-center bg-white w-full lg:w-48  py-6 shadow-lg lg:sticky lg:top-0 lg:h-screen">
+        <h2 className="text-sm font-bold  mb-4   text-gray-700  ">TimeTrackerASC Visio</h2>
         <ul>
             {menuList.map((item, index) => (
-                <li className="py-4" key={index}>
+                <li className="py-2" key={index}>
                     <Link to={item.href}
-                        className={`px-6 py-3 font-thin text-white rounded-xl mx-4 hover:text-gray-800 flex hover:bg-blue-500 items-center ${this.state.activeMenuIndex === index ? "bg-blue-600" : ""
+                        className={`px-6  py-2 font-thin text-gray-700 rounded-xl mx-4 hover:gray-700 flex hover:bg-gray-200 items-center ${this.state.activeMenuIndex === index ? "bg-black  text-white" : ""
                             }`}
                         onClick={() => this.handleMenuClick(index)}
                     >
@@ -50,7 +51,7 @@ class LeftNav extends Component {
             ))}
         </ul>
         <div className="text-center">
-            <span className="text-white absolute  bottom-0 left-1/2 text-xs transform -translate-x-1/2 -translate-y-1/2 ">
+            <span className="absolute  text-gray-700  bottom-0 left-1/2 text-xs transform -translate-x-1/2 -translate-y-1/2 ">
                 TimeTracker - ASC Vision v 0.1
             </span>
         </div>
