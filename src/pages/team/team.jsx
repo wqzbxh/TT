@@ -24,7 +24,87 @@ class Team extends Component {
                     username:'Lisi@163.com',
                     role:"menange",
                     info:'this Lisi   Info'
-                },]
+                },{
+                    name:'Lisi',
+                    email:'Lisiwqzbxh',
+                    username:'Lisi@163.com',
+                    role:"menange",
+                    info:'this Lisi   Info'
+                },{
+                    name:'Lisi',
+                    email:'Lisiwqzbxh',
+                    username:'Lisi@163.com',
+                    role:"menange",
+                    info:'this Lisi   Info'
+                },{
+                    name:'Lisi',
+                    email:'Lisiwqzbxh',
+                    username:'Lisi@163.com',
+                    role:"menange",
+                    info:'this Lisi   Info'
+                },{
+                    name:'Lisi',
+                    email:'Lisiwqzbxh',
+                    username:'Lisi@163.com',
+                    role:"menange",
+                    info:'this Lisi   Info'
+                },{
+                    name:'Lisi',
+                    email:'Lisiwqzbxh',
+                    username:'Lisi@163.com',
+                    role:"menange",
+                    info:'this Lisi   Info'
+                },{
+                    name:'Lisi',
+                    email:'Lisiwqzbxh',
+                    username:'Lisi@163.com',
+                    role:"menange",
+                    info:'this Lisi   Info'
+                },{
+                    name:'Lisi',
+                    email:'Lisiwqzbxh',
+                    username:'Lisi@163.com',
+                    role:"menange",
+                    info:'this Lisi   Info'
+                },{
+                    name:'Lisi',
+                    email:'Lisiwqzbxh',
+                    username:'Lisi@163.com',
+                    role:"menange",
+                    info:'this Lisi   Info'
+                },{
+                    name:'Lisi',
+                    email:'Lisiwqzbxh',
+                    username:'Lisi@163.com',
+                    role:"menange",
+                    info:'this Lisi   Info'
+                },{
+                    name:'Lisi',
+                    email:'Lisiwqzbxh',
+                    username:'Lisi@163.com',
+                    role:"menange",
+                    info:'this Lisi   Info'
+                },{
+                    name:'Lisi',
+                    email:'Lisiwqzbxh',
+                    username:'Lisi@163.com',
+                    role:"menange",
+                    info:'this Lisi   Info'
+                },{
+                    name:'Lisi',
+                    email:'Lisiwqzbxh',
+                    username:'Lisi@163.com',
+                    role:"menange",
+                    info:'this Lisi   Info'
+                },{
+                    name:'Lisi',
+                    email:'Lisiwqzbxh',
+                    username:'Lisi@163.com',
+                    role:"menange",
+                    info:'this Lisi   Info'
+                },],
+                itemsPerPage:15,
+                totalItems:8900
             }
         };
       }

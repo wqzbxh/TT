@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class FormTitle extends Component {
     
- closeModal = () => {
+  closeModalForm = () => {
     this.props.closeModal();
   };
   render() {
@@ -10,7 +10,7 @@ class FormTitle extends Component {
     return (
      <div className="text-right flex px-6  bg-white">
         <div className="subpixel-antialiased text-2xl font-semibold flex-grow h-16 text-center">
-        Create New Project (Customer 1)
+        Create New Project
         </div>
         <div className="flex-none px-2 h-16 ...">
           <span
@@ -21,7 +21,7 @@ class FormTitle extends Component {
         <div className="flex-none px-1 h-16 ...">
           <span
             className="iconfont  text-2xl  text-red-500  hover:text-red-700 icon-shanchu3"
-            onClick={this.closeModal}
+            onClick={this.closeModalForm}
           ></span>
         </div>
 

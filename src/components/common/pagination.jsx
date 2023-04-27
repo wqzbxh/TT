@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
 class Pagination extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = { currentPage: 1 };
-//   }
+  constructor(props) {
+    super(props);
+    this.state = { currentPage: 1 };
+  }
   
   handleClick = (page) => {
     this.setState({ currentPage: page });
@@ -14,15 +14,37 @@ class Pagination extends Component {
     const { totalItems, itemsPerPage } = this.props;
     const totalPages = Math.ceil(totalItems / itemsPerPage);
     const pageNumbers = [];
-    console.log(totalPages)
-    for (let i = 1; i <= totalPages; i++) {
+    const maxPageButtons = 9; // 设置页面显示的数量
+    
+    let startPage = 1;
+    let endPage = totalPages;
+    
+    if (totalPages > maxPageButtons) {
+      const middlePage = Math.floor(maxPageButtons / 2) + 1;
+      if (this.state.currentPage >= middlePage && this.state.currentPage <= totalPages - middlePage + 1) {
+        startPage = this.state.currentPage - middlePage + 2;
+        endPage = this.state.currentPage + Math.floor(maxPageButtons / 2);
+      } else if (this.state.currentPage < middlePage) {
+        endPage = maxPageButtons;
+      } else {
+        startPage = totalPages - maxPageButtons + 1;
+      }
+      
+      if (startPage > 1) {
+        pageNumbers.push(<span key="ellipsis-start" className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300">...</span>);
+      }
+    }
+    
+    for (let i = startPage; i <= endPage; i++) {
       pageNumbers.push(
-        // <li key={i} className={i === this.state.currentPage ? 'active' : null}>
-        //   <a onClick={() => this.handleClick(i)}>{i}</a>
-        // </li>
-         <a href="#" className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">{i}</a>
+        <a key={i} href="#" className={`relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 ${i === this.state.currentPage ? 'bg-gray-200' : ''}`} onClick={() => this.handleClick(i)}>{i}</a>
       );
     }
+    
+    if (endPage < totalPages) {
+      pageNumbers.push(<span key="ellipsis-end" className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300">...</span>);
+    }
+    
     return pageNumbers;
   };
   
@@ -50,15 +72,14 @@ class Pagination extends Component {
                                 <a href="#" className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
                                 <span className="sr-only">Previous</span>
                                 <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
+                                    <path  fillRule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" fillRule="evenodd" />
                                 </svg>
                                 </a>
                                 {this.renderPageNumbers()}
-                              <span className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-300 focus:outline-offset-0">...</span>
                                <a href="#" className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
                                 <span className="sr-only">Next</span>
                                 <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                                    <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" fillRule="evenodd" />
                                 </svg>
                                 </a>
                             </nav>

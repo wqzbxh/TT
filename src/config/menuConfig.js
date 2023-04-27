@@ -20,6 +20,11 @@ const menuItems = [
         href: "/team",
     },
     {
+        icon: "yuangong",
+        label: "Customer",
+        href: "/customer",
+    },
+    {
         icon: "tongji",
         label: "Statistics",
         href: "#",

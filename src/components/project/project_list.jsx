@@ -53,19 +53,7 @@ class ProjectList extends Component {
           },
         ],
       }
-    
-      /***********打开添加项目框 */
-      handleCreaterProject=()=>{
-        console.log(this.state.isModalOpen)
-        this.setState({ isCreaterMedal: true});
-        
-      }
-      /***********关闭添加框 */
-      closeCreateProject=()=>{
-        this.setState({
-          isCreaterMedal: false
-        });
-      }
+ 
       /***********打开编辑框 */
       handleEditProject=()=>{
         this.setState({ isEditModal: true});
@@ -142,7 +130,6 @@ class ProjectList extends Component {
                     
                 </table>
             </div>
-        <CreateProject isVisible={this.state.isCreaterMedal}  closeModal={this.closeCreateProject}  />
         <EditProject isVisible={this.state.isEditModal}   closeModal={this.closeEditProject} />
         <TimePlanProject isVisible={this.state.isTimePlan}   closeModal={this.closeTimePlanProject} />
       </div>

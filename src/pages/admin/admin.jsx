@@ -8,6 +8,7 @@ import './admin.css'
 import Project from "../project/project";
 import Track from "../tracker/track";
 import Team from "../team/team";
+import Customer from "../customer/customer";
 class Admin extends Component {
     constructor(props) {
         super(props);
@@ -56,8 +57,8 @@ class Admin extends Component {
                                 <Route path="/tracker" element={<Track />} />
                                 <Route path="/projects" element={<Project />} />
                                  <Route path="/team" element={<Team />} />
-                           {/*  <Route path="/orga" element={<Orga />} />
-                            <Route path="/create_project" element={<CreateProject />} />
+                               <Route path="/Customer" element={<Customer />} />
+                            {/*<Route path="/create_project" element={<CreateProject />} />
                             <Route path="/edit_project" element={<EditProject />} />
                             <Route path="/all_project_report" element={<AllProjectReport />} />
                             <Route path="/project_report" element={<ProjectReport />} />
