@@ -14,13 +14,13 @@ class FormTitle extends Component {
         </div>
         <div className="flex-none px-2 h-16 ...">
           <span
-            className="iconfont icon-tijiao01 hover:text-green-900  text-2xl text-green-500"
+            className="iconfont icon-a-shouye-fuben_tijiaochenggong      hover:text-green-500  text-2xl text-gray-900"
             onClick={this.saveTimePlan}
           ></span>
         </div>
         <div className="flex-none px-1 h-16 ...">
           <span
-            className="iconfont  text-2xl  text-red-500  hover:text-red-700 icon-shanchu3"
+            className="iconfont  text-2xl  text-gray-900  hover:text-red-500 icon-a-shouye-fuben_tishicuowu"
             onClick={this.closeModalForm}
           ></span>
         </div>

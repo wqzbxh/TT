@@ -8,8 +8,8 @@ const Tab = ({ tabs }) => {
   };
 
   return (
-    <div className="w-full border  shadow-lg">
-      <div className="flex">
+    <div className="w-full border ">
+      <div className="flex  rounded-sm shadow ">
         {tabs.map((tab, index) => (
           <div
             key={index}
@@ -17,7 +17,7 @@ const Tab = ({ tabs }) => {
               activeTabIndex === index
                 ? 'bg-white text-gray-700'
                 : 'bg-gray-100 text-gray-600'
-            } py-2 px-4 w-40 cursor-pointer  ${
+            }  items-center justify-left  overflow-hidden  text-center py-6 px-8 w-auto hover:bg-gray-50  cursor-pointer  ${
               index === 0 ? '' : ''
             } ${
               index === tabs.length - 1 ? 'rounded-r-lg' : ''

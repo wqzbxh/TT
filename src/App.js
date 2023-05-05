@@ -10,6 +10,8 @@ import Project from './pages/project/project';
 import Track from './pages/tracker/track';
 import Team from './pages/team/team';
 import Customer from './pages/customer/customer';
+import Statistics from './pages/statistics/statistics';
+import ProjectReport from './pages/statistics/project_report';
 
 
 export default class App extends Component{
@@ -26,7 +28,9 @@ export default class App extends Component{
                         <Route path="/tracker" element={<Track />} />
                         <Route path="/projects" element={<Project />} />
                         <Route path="/team" element={<Team />} />
-                        <Route path="/Customer" element={<Customer />} />
+                        <Route path="/customer" element={<Customer />} />
+                        <Route path="/statistics" element={<Statistics />} />
+                        <Route path="/project_report" element={<ProjectReport />} />
                   </Route>
               </Routes>
           </BrowserRouter>

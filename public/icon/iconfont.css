@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 4031740 */
-  src: url('iconfont.woff2?t=1682389825682') format('woff2'),
-       url('iconfont.woff?t=1682389825682') format('woff'),
-       url('iconfont.ttf?t=1682389825682') format('truetype');
+  src: url('iconfont.woff2?t=1683183444453') format('woff2'),
+       url('iconfont.woff?t=1683183444453') format('woff'),
+       url('iconfont.ttf?t=1683183444453') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,178 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-tuichudenglu:before {
+  content: "\e65a";
+}
+
+.icon-shinshoptuichudenglu:before {
+  content: "\e65f";
+}
+
+.icon-tuichudenglu1:before {
+  content: "\e663";
+}
+
+.icon-tuichudenglu2:before {
+  content: "\e66a";
+}
+
+.icon-tuichudenglu3:before {
+  content: "\e66d";
+}
+
+.icon-quanbu:before {
+  content: "\e602";
+}
+
+.icon-all:before {
+  content: "\e755";
+}
+
+.icon-ichr:before {
+  content: "\e633";
+}
+
+.icon-shijian2:before {
+  content: "\e667";
+}
+
+.icon-jinzhide:before {
+  content: "\e6bd";
+}
+
+.icon-shouye:before {
+  content: "\e634";
+}
+
+.icon-overtime:before {
+  content: "\e8b9";
+}
+
+.icon-students1146692easyiconnet:before {
+  content: "\e648";
+}
+
+.icon-students1146694easyiconnet:before {
+  content: "\e649";
+}
+
+.icon-rizhi1:before {
+  content: "\e69a";
+}
+
+.icon-quanbu1:before {
+  content: "\e64a";
+}
+
+.icon-shijian3:before {
+  content: "\e8c5";
+}
+
+.icon-jinzhi-yin:before {
+  content: "\e692";
+}
+
+.icon-fl-renshi:before {
+  content: "\e64b";
+}
+
+.icon-wallet-fill:before {
+  content: "\e852";
+}
+
+.icon-bingli:before {
+  content: "\e64c";
+}
+
+.icon-employees_icon:before {
+  content: "\e64e";
+}
+
+.icon-shijian4:before {
+  content: "\eb2a";
+}
+
+.icon-bingjia:before {
+  content: "\e650";
+}
+
+.icon-woderizhi:before {
+  content: "\e651";
+}
+
+.icon-icon-rizhi:before {
+  content: "\e652";
+}
+
+.icon-baobiao5:before {
+  content: "\e656";
+}
+
+.icon-renshiguanli:before {
+  content: "\e657";
+}
+
+.icon-rizhi2:before {
+  content: "\e659";
+}
+
+.icon-bingli1:before {
+  content: "\e85e";
+}
+
+.icon-jiance:before {
+  content: "\e65b";
+}
+
+.icon-baobiao6:before {
+  content: "\e707";
+}
+
+.icon-human-resources-search-employees:before {
+  content: "\e69f";
+}
+
+.icon-shijian5:before {
+  content: "\e8ba";
+}
+
+.icon-jianceshi:before {
+  content: "\e6a5";
+}
+
+.icon-hc-workovertime:before {
+  content: "\e65c";
+}
+
+.icon-clock-full:before {
+  content: "\e9ac";
+}
+
+.icon-time-full:before {
+  content: "\e9ad";
+}
+
+.icon-overtime-fill:before {
+  content: "\e81e";
+}
+
+.icon-overtime1:before {
+  content: "\e86b";
+}
+
+.icon-quanbu2:before {
+  content: "\e65d";
+}
+
+.icon-icon_bingjia:before {
+  content: "\e65e";
+}
+
+.icon-ziyuan53:before {
+  content: "\e76e";
 }
 
 .icon-shanchu3:before {

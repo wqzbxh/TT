@@ -3,6 +3,9 @@ import PageTitle from '../../components/common/page_title';
 import SearchBox from '../../components/common/search_box';
 import ProjectList from '../../components/project/project_list';
 import TableList from '../../components/common/table';
+import Edit from '../../components/common/batch_processing';
+import CreateTeamUserBtn from '../../components/common/creater_team_user_btn';
+import CreateTeamUserRoleBtn from '../../components/common/creater_team_user_role_btn';
 
 class Team extends Component {
     constructor(props) {
@@ -112,8 +115,8 @@ class Team extends Component {
     const {page_title,dataList} = this.state;
     return (
         <div className="overflow-y-auto bg-white md:mx-auto  shadow-md  ">
-            <SearchBox />
-            <TableList dataList = {dataList}/>
+            <SearchBox  edit={<Edit />}  createCreateTeamUserBtn={<CreateTeamUserBtn />} createCreateTeamUserRoleBtn ={<CreateTeamUserRoleBtn />} />
+            <TableList dataList = {dataList} />
         </div>    
     );
   }

@@ -1,34 +1,22 @@
 import React, { Component } from 'react';
 import Tab from '../../components/common/tab';
 import Site from './site';
+import HolidaySettings from './holiday_settings';
+import Permissions from './permissions';
 class Settings extends Component {
   render() {
 
       const tabs = [
         {
-          label: 'Tab 1',
+          label: 'Site  Settings',
           content: <Site /> ,
         }, {
-          label: 'Tab 1',
-          content: <div>This is the content for Tab 1</div>,
+          label: 'Holiday Settings',
+          content: <HolidaySettings />,
         }, {
-          label: 'Tab 1',
-          content: <div>This is the content for Tab 1</div>,
-        }, {
-          label: 'Tab 1',
-          content: <div>This is the content for Tab 1</div>,
-        }, {
-          label: 'Tab 1',
-          content: <div>This is the content for Tab 1</div>,
-        },
-        {
-          label: 'Tab 2',
-          content: <div>This is the content for Tab 2</div>,
-        },
-        {
-          label: 'Tab 3',
-          content: <div>This is the content for Tab 3</div>,
-        },
+          label: 'Permissions',
+          content: <Permissions />,
+        }
       ];
     return (
       <div>

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import {Link,useLocation} from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import menuList from "../../config/menuConfig";
+import localstorageUnits from "../../utils/localstorageUnits";
 class LeftNav extends Component {
   constructor(props) {
     super(props);
@@ -13,56 +14,66 @@ class LeftNav extends Component {
 
   handleMenuClick = (index) => {
     // 点击菜单项时设置当前选中的菜单项
+    localstorageUnits.getUser();
     this.setState({
       activeMenuIndex: index,
     });
   };
   componentDidMount() {
-    console.log('一般用在进入页面后，数据初始化');
+    console.log("一般用在进入页面后，数据初始化");
     console.log(this.props);
-    const {pathname} = this.props.location
-    menuList.map((item,index)=>{
-        if(item.href == pathname){
-            this.setState({
-                activeMenuIndex: index,
-              });
-        }
-    })
+    const { pathname } = this.props.location;
+    menuList.map((item, index) => {
+      if (item.href == pathname) {
+        this.setState({
+          activeMenuIndex: index,
+        });
+      }
+    });
   }
   render() {
-  
-
     return (
-        // <div className="relative  rounded-3xl bg-gradient-to-b from-gray-900 to-gray-900  to-gray-800  text-center bg-white w-full lg:w-48  py-6 shadow-lg lg:sticky lg:top-0 lg:h-screen">
-        <div className="relative  text-center bg-white w-full lg:w-48  py-6 shadow-lg lg:sticky lg:top-0 lg:h-screen">
-        <h2 className="text-sm font-bold  mb-4   text-gray-700  ">TimeTrackerASC Visio</h2>
-        <ul>
+      <div className="divide-y">
+        <div className="relative  rounded-3xl font-thin bg-gradient-to-b from-customize-dark-42  to-customize-dark-19 transform rotate-15 text-center w-full heigh96 mt-4 ml-4 lg:w-56 py-6 shadow-lg ">
+          <div className="">
+            <p className="text-2xl font-semibold  text-white ">TimeTracker</p>
+            <p className="text-xs font-semibold  mb-4   text-white ">
+              ASC Visio
+            </p>
+          </div>
+          <div className="tt-drvider"></div>
+          <ul>
             {menuList.map((item, index) => (
-                <li className="py-2" key={index}>
-                    <Link to={item.href}
-                        className={`px-6  py-2 font-thin text-gray-700 rounded-xl mx-4 hover:gray-700 flex hover:bg-gray-200 items-center ${this.state.activeMenuIndex === index ? "bg-black  text-white" : ""
-                            }`}
-                        onClick={() => this.handleMenuClick(index)}
-                    >
-                        <span className={`jinxing iconfont icon-${item.icon}`}></span>
-                        <span className="ml-2">{item.label}</span>
-                    </Link>
-                </li>
+              <li className="py-2" key={index}>
+                <Link
+                  to={item.href}
+                  className={`px-6  py-2 transition ease-in-out   text-sm transform hover:-translate-y-1 hover:scale-110 rounded mx-4  flex hover:bg-gradient-to-b from-customize-blue-49 to-customize-blue-1a  items-center ${
+                    this.state.activeMenuIndex === index
+                      ? "bg-transparent bg-gradient-to-br  from-customize-blue-49 to-customize-blue-1a    transform rotate-15 text-white"
+                      : " text-white  hover:bg-opacity-5 "
+                  }`}
+                  onClick={() => this.handleMenuClick(index)}
+                >
+                  <span className={`jinxing iconfont icon-${item.icon}`}></span>
+                  <span className="ml-2">{item.label}</span>
+                </Link>
+              </li>
             ))}
-        </ul>
-        <div className="text-center">
-            <span className="absolute  text-gray-700  bottom-0 left-1/2 text-xs transform -translate-x-1/2 -translate-y-1/2 ">
-                TimeTracker - ASC Vision v 0.1
+          </ul>
+          <div className="text-center">
+            <span className="absolute  text-white bottom-0 left-1/2 text-xs transform -translate-x-1/2 -translate-y-1/2 ">
+              TimeTracker - ASC Vision v 0.1
             </span>
+          </div>
         </div>
-    </div>
+      </div>
     );
   }
 }
 
 function LeftNavUpgrade() {
-    const location = useLocation();
-    return <LeftNav location={location} />;
-  }
-  
+  const location = useLocation();
+  return <LeftNav location={location} />;
+}
+
 export default LeftNavUpgrade;

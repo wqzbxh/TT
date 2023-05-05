@@ -6,6 +6,9 @@ import TableList from '../../components/common/table';
 import CreateCustomer from './customer_create';
 import CreateProjectBtn from '../../components/common/creater_project_btn';
 import CreateProject from '../../components/project/project_create';
+import ProjectListBtn from '../../components/project/project_list_btn';
+import Edit from '../../components/common/batch_processing';
+import CreateCustomerBtn from '../../components/common/creater_customer_btn';
 
 class Customer extends Component {
     constructor(props) {
@@ -35,17 +38,7 @@ class Customer extends Component {
             }
         };
       }
-    /***********打开添加框 */
-    handleCreateCustomer=()=>{
-     this.setState({ isCustomerModal: true});
-     
-    }
-       /***********关闭编辑框 */
-   closeCustomerData=()=>{
-    this.setState({
-        isCustomerModal: false
-    });
-  }
+
   
 /***********打开添加项目框 */
 handleCreaterProject=()=>{
@@ -63,47 +56,10 @@ closeCreateProject=()=>{
     const {page_title,dataList,isCustomerModal,isCreaterMedal} = this.state;
     return (
         <div className="overflow-y-auto bg-white md:mx-auto  shadow-md  ">
-                 
-        <div className="border flex px-2  py-2 items-center justify-center  rounded-sm bg-white shadow overflow-hidden sm:rounded-lg">
-          <div className="flex-none  text-lg px-8 ">FILTER</div>
-
-          <div className="relative inline-block border w-64">
-            <select className="block w-full py-3 px-4 pr-8 leading-tight text-gray-700 bg-white rounded-lg appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-500">
-              <option className="bg-transparent border-0" value="1">
-                Active
-              </option>
-              <option className="bg-transparent border-0" value="2">
-                Archived
-              </option>
-              <option className="bg-transparent border-0" value="3">
-                All
-              </option>
-            </select>
-          </div>
-
-          
-          <div className="flex-grow px-8  ">
-            <input
-              className="px-4 py-3 rounded-lg w-full border  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              type="text"
-              placeholder="请输入内容"
-            />
-          </div>
-          <div className="rounded-2xl px-2">
-            <div className="text-bluegray-700 text-sm px-2.5 py-2 border border-blue-200  hover:border-dashed  hover:bg-blue-50  hover:">
-                <span className="iconfont icon-chaxun1"></span> &nbsp;&nbsp;  Apply filter
-            </div>
-          </div>
-
-          <div className="rounded-2xl px-2" onClick={this.handleCreateCustomer} >
-            <div className="text-bluegray-700 text-sm px-2.5 py-2 border border-blue-200  hover:border-dashed  hover:bg-blue-50  hover:">
-                <span className="iconfont icon-xinzeng5"></span> &nbsp;&nbsp;  Add Customer
-            </div>
-          </div>
-        </div>
-            <CreateCustomer isVisible={isCustomerModal}  closeModal={this.closeCustomerData} />
+             <SearchBox  edit={<Edit />}  createCustomerBtn={<CreateCustomerBtn />} />
+         
             
-            <TableList dataList = {dataList} createProjectBtn={<CreateProjectBtn  />}/>
+            <TableList dataList = {dataList} createProjectBtn={<CreateProjectBtn  />}  projectListBtn = {<ProjectListBtn />}/>
         </div>    
     );
   }

@@ -27,7 +27,7 @@ const menuItems = [
     {
         icon: "tongji",
         label: "Statistics",
-        href: "#",
+        href: "/statistics",
     },
     {
         icon: "jihua2",

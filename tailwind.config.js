@@ -25,6 +25,20 @@ module.exports = {
       overflow: {
         'auto': 'auto',
       },
+      colors:{
+        'customize-blue-49':'#49a3f1',
+        'customize-blue-1a':'#1a73e8',
+        'customize-dark-42':'#42424a',
+        'customize-dark-19':'#191919',
+        'customize-primary-1':'#007aff', 
+        'customize-complementary':'#fc5f05', 
+        'customize-secondary-1':'#3E5574', 
+        'customize-secondary-2':'#3C4D60', 
+        'customize-alert':'#F44336', 
+        'customize-success':'#45C468', 
+        'customize-Warning':'#FF5733', 
+        'customize-Info':'#366DBA'
+      }
     },
   },
   variants: {

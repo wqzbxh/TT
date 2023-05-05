@@ -68,10 +68,10 @@ class CreaterTimeSheet extends Component {
     const { id } = this.props;
     const { quill_formats,item_description, text, quill_modules, listD } = this.state;
     const { isVisible } = this.props;
-    console.log("***********");
-    console.log(this.props);
-    console.log(isVisible);
-    console.log("***********");
+    // console.log("***********");
+    // console.log(this.props);
+    // console.log(isVisible);
+    // console.log("***********");
     if (!isVisible) return null;
     return (
 

@@ -3,6 +3,8 @@ import SearchBox from '../common/search_box';
 import CreateProject from "./project_create"
 import EditProject from "./project_edit";
 import TimePlanProject from "./project_time_plan";
+import CustomerFilterName from '../common/creater_filter_name';
+import Edit from '../common/batch_processing';
 
 class ProjectList extends Component {
     state={
@@ -83,18 +85,18 @@ class ProjectList extends Component {
       
         <div className="overflow-y-auto md:mx-auto  rounded-md  shadow-md">
       
-        <SearchBox />
+        <SearchBox  customerFilterName={<CustomerFilterName />}  edit={<Edit/>} />
         <div className="py-3"></div>
             <div className="overflow-x-auto bg-white ">
                 <table className="text-left table-auto min-w-full divide-y divide-gray-200">
                     <thead>
                     <tr className="  text-xs">
-                        <th  scope="col"    className="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider" > Order No. </th>
-                        <th  scope="col"    className="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider" > Project. </th>
-                        <th  scope="col"    className="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider" > Customer. </th>
-                        <th  scope="col"    className="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider" > Distributen FW.</th>
-                        <th  scope="col"    className="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider" > Amount. </th>
-                        <th  scope="col"    className="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider" > Action. </th>
+                        <th  scope="col"    className="px-6 py-3 text-left text-sm font-semibold  text-gray-600 uppercase tracking-wider" > Order No. </th>
+                        <th  scope="col"    className="px-6 py-3 text-left text-sm font-semibold text-gray-600 uppercase tracking-wider" > Project. </th>
+                        <th  scope="col"    className="px-6 py-3 text-left text-sm font-semibold text-gray-600 uppercase tracking-wider" > Customer. </th>
+                        <th  scope="col"    className="px-6 py-3 text-left text-sm font-semibold text-gray-600 uppercase tracking-wider" > Distributen FW.</th>
+                        <th  scope="col"    className="px-6 py-3 text-left text-sm font-semibold text-gray-600 uppercase tracking-wider" > Amount. </th>
+                        <th  scope="col"    className="px-6 py-3 text-left text-sm font-semibold text-gray-600 uppercase tracking-wider" > Action. </th>
                     </tr>
                     </thead>
                     <tbody className="divide-y text-sm  font-extralight  divide-gray-200">
