@@ -17,7 +17,6 @@ class CustomerFilterName extends Component {
     }
 
   render() {
-    console.log(this.state.isCreaterMedal)
     return (
          <div className="relative inline-block border w-64  h-10 mx-1">
             <select className="block w-full py-2 px-4 pr-8 leading-tight text-gray-700 bg-white rounded-lg appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-500">

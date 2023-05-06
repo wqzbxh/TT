@@ -14,7 +14,7 @@ class Statistics extends Component {
   render() {
     
     const tabs = [ 
-       {
+      {
         label: 'Report',
         content: <Report/>,
       }, {

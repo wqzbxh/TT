@@ -6,6 +6,34 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "4734170",
+      "name": "处理中",
+      "font_class": "ic_wait",
+      "unicode": "e66b",
+      "unicode_decimal": 58987
+    },
+    {
+      "icon_id": "5925323",
+      "name": "进行中",
+      "font_class": "jinhangzhong",
+      "unicode": "e66c",
+      "unicode_decimal": 58988
+    },
+    {
+      "icon_id": "6677864",
+      "name": "进行中",
+      "font_class": "jinhangzhong1",
+      "unicode": "e670",
+      "unicode_decimal": 58992
+    },
+    {
+      "icon_id": "11845357",
+      "name": "进行中",
+      "font_class": "icon_xinyong_xianxing_jijin-",
+      "unicode": "e671",
+      "unicode_decimal": 58993
+    },
+    {
       "icon_id": "4735599",
       "name": "退出登录",
       "font_class": "tuichudenglu",

@@ -5,26 +5,30 @@ import localstorageUnits from "../../utils/localstorageUnits";
 class LeftNav extends Component {
   constructor(props) {
     super(props);
-
     // 初始状态为第一个菜单项选中
     this.state = {
       activeMenuIndex: 0,
     };
   }
 
-  handleMenuClick = (index) => {
+  handleMenuClick = (index,path) => {
     // 点击菜单项时设置当前选中的菜单项
-    localstorageUnits.getUser();
+    localstorageUnits.savePath({'currentActivePath':path});
     this.setState({
       activeMenuIndex: index,
     });
   };
   componentDidMount() {
-    console.log("一般用在进入页面后，数据初始化");
-    console.log(this.props);
-    const { pathname } = this.props.location;
+    let { pathname } = this.props.location;
+    // 检查当前URI是不是菜单的URI，是filteredItems则为非空数组，不是则进行读取缓存上一次的URI进行添加Active样式
+    const filteredItems = menuList.filter(item => item.href.includes(pathname));
+    if(filteredItems.length === 0){
+      let storagePath = localstorageUnits.getPath();
+      pathname = storagePath.currentActivePath
+    }
+    // eslint-disable-next-line array-callback-return
     menuList.map((item, index) => {
-      if (item.href == pathname) {
+      if (item.href === pathname) {
         this.setState({
           activeMenuIndex: index,
         });
@@ -52,7 +56,7 @@ class LeftNav extends Component {
                       ? "bg-transparent bg-gradient-to-br  from-customize-blue-49 to-customize-blue-1a    transform rotate-15 text-white"
                       : " text-white  hover:bg-opacity-5 "
                   }`}
-                  onClick={() => this.handleMenuClick(index)}
+                  onClick={() => this.handleMenuClick(index,item.href)}
                 >
                   <span className={`jinxing iconfont icon-${item.icon}`}></span>
                   <span className="ml-2">{item.label}</span>

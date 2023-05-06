@@ -22,11 +22,10 @@ class CreateCustomerBtn extends Component {
   };
   render() {
     const { page_title, dataList, isCustomerModal, isCreaterMedal } =  this.state;
-    console.log(this.state.isCreaterMedal);
     return (
       <div className="rounded-2xl px-2">
         <div
-          className="text-bluegray-700 text-sm px-2.5 py-2 border border-blue-200  hover:border-dashed  hover:bg-blue-50  hover:"
+          className="text-bluegray-700 text-sm px-2.5 py-2 border border-customize-dark-42  hover:border-dashed  hover:bg-customize-dark-19  hover:text-white"
           onClick={this.handleCreateCustomer}
         >
           <span className="iconfont icon-xinzeng5"></span> &nbsp;&nbsp; Add

@@ -51,7 +51,6 @@ class EditProject extends Component {
   }
   /******************删除记录 */
   handleRemoveRecord=(index)=>{
-    console.log(index)
         if(this.state.individualDataList.length < 2){
             return false;
         }
@@ -60,8 +59,7 @@ class EditProject extends Component {
         }))}
  /************************选择 */
  handleChange=(event,index)=>{
-    const {name,value} = event.target
-    console.log(event.target.value,event.target.name,index)
+    const {name,value} = event.target;
     this.setState((prevState)=>({
         individualDataList:prevState.individualDataList.map((olderRecord,oldIndex)=>{
             if(oldIndex === index){

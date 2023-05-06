@@ -22,11 +22,10 @@ class CreateTeamUserBtn extends Component {
   };
   render() {
     const { page_title, dataList, isCustomerModal, isCreaterMedal } =  this.state;
-    console.log(this.state.isCreaterMedal);
     return (
       <div className="rounded-2xl px-2">
         <div
-          className="text-white text-sm px-2.5 py-2 border bg-customize-blue-49  hover:border-dashed  hover:bg-customize-blue-1a"
+          className="text-bluegray-700 text-sm px-2.5 py-2 border border-customize-dark-42  hover:border-dashed  hover:bg-customize-dark-19  hover:text-white"
           onClick={this.handleCreateCustomer}
         >
           <span className="iconfont icon-xinzeng5"></span> &nbsp;&nbsp; Add TeamUser

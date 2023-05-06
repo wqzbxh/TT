@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import CreateProject from "../project/project_create";
-import CreateCustomer from "../../pages/customer/customer_create";
+import CreateCostCenter from "../../pages/setting/cost_center_create";
 
-class CreateTeamUserRoleBtn extends Component {
+class CreateCostCenterBtn extends Component {
   state = {
     isCustomerModal: false,
     isCreaterMedal: false,
@@ -28,9 +27,9 @@ class CreateTeamUserRoleBtn extends Component {
           className="text-bluegray-700 text-sm px-2.5 py-2 border border-customize-dark-42  hover:border-dashed  hover:bg-customize-dark-19  hover:text-white"
           onClick={this.handleCreateCustomer}
         >
-          <span className="iconfont icon-xinzeng5"></span> &nbsp;&nbsp; Create Role
+          <span className="iconfont icon-xinzeng5"></span> &nbsp;New CostCenter
         </div>
-        <CreateCustomer
+        <CreateCostCenter
           isVisible={isCustomerModal}
           closeModal={this.closeCustomerData}
         />
@@ -39,4 +38,4 @@ class CreateTeamUserRoleBtn extends Component {
   }
 }
 
-export default CreateTeamUserRoleBtn;
+export default CreateCostCenterBtn;

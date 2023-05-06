@@ -6,11 +6,12 @@ class FormTitle extends Component {
     this.props.closeModal();
   };
   render() {
-
+    const {titleTxt} = this.props;
+    console.log(titleTxt)
     return (
      <div className="text-right flex px-6  bg-white">
         <div className="subpixel-antialiased text-2xl font-semibold flex-grow h-16 text-center">
-        Create New Project
+        { titleTxt ? titleTxt : " Create New Item"}
         </div>
         <div className="flex-none px-2 h-16 ...">
           <span

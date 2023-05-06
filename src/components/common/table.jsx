@@ -8,19 +8,6 @@ class TableList extends Component {
     selectedRows:[],
     dataList:{
         title :['name','username',"eamil","role","info"],
-        datalist:[{
-            name:'zhangSan',
-            email:'wqzbxh',
-            username:'wqzbxh@163.com',
-            role:"menange",
-            info:'this zhangsan   Info'
-        },{
-            name:'Lisi',
-            email:'Lisiwqzbxh',
-            username:'Lisi@163.com',
-            role:"menange",
-            info:'this Lisi   Info'
-        },],
         itemsPerPage:10,
         totalItems:100
     }
@@ -33,7 +20,6 @@ class TableList extends Component {
      toggleSelectAll = () => {
         const { datalist } = this.props.dataList;
         const { selectedRows } = this.state;
-        console.log(selectedRows,datalist)
         if (selectedRows.length === datalist.length) {
           this.setState({ selectedRows: [] });
         } else {
@@ -54,9 +40,6 @@ class TableList extends Component {
   render() {
     const {dataList} = this.props;
     const { selectedRows } = this.state;
-    console.log('************')
-    console.log(selectedRows.includes(0))
-    console.log(selectedRows.includes(0))
     return (
     <div className="overflow-y-auto md:mx-auto  rounded-md  shadow-md">
         <div className="py-3"></div>

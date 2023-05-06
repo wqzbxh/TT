@@ -9,7 +9,7 @@ class SearchBox extends Component {
           {this.props.edit ? this.props.edit:''}
           {this.props.customerFilterName ? this.props.customerFilterName:''}
           <div className="relative inline-block border w-64 mx-1 h-10">
-            <select className="block w-full py-2 px-4 pr-8 leading-tight text-gray-700 bg-white rounded-lg appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-500">
+            <select className="block w-full py-2 px-4 pr-8 leading-tight text-customize-dark-19  bg-white rounded-lg appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-500">
               <option className="bg-transparent border-0" value="1">
                 Active
               </option>
@@ -28,7 +28,7 @@ class SearchBox extends Component {
               type="text"
               placeholder="请输入内容"
             />
-            <span className="py-2  mx-1 px-4 text-white  border-r border-b border-t  bg-customize-blue-49 hover:bg-customize-blue-1a iconfont icon-chaxun1"></span> &nbsp;&nbsp; 
+            <span className="py-2  mx-1 px-4 text-white  border-r border-b border-t  bg-customize-dark-19 hover:bg-customize-dark-42 iconfont icon-chaxun1"></span> &nbsp;&nbsp; 
          
     
           </div>
@@ -41,6 +41,8 @@ class SearchBox extends Component {
           {this.props.createCustomerBtn ? this.props.createCustomerBtn:''}
           {this.props.createCreateTeamUserBtn ? this.props.createCreateTeamUserBtn:''}
           {this.props.createCreateTeamUserRoleBtn ? this.props.createCreateTeamUserRoleBtn:''}
+          {this.props.createCreateCostCenterBtn ? this.props.createCreateCostCenterBtn:''}
+          
         </div>
         
     );
