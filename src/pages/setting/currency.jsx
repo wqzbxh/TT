@@ -31,7 +31,7 @@ class CompanySettings extends Component {
     const result = response.data;
     if (result.code === 200) {
       this.setState(prevState => ({
-        listMsg: [...prevState.listMsg, { 'msg': '设置货币信息成功！', color: '#45C468' }],
+        listMsg: [...prevState.listMsg, { 'msg': result.msg, color: '#45C468' }],
       }));
     } else {
       console.log(result.msg)

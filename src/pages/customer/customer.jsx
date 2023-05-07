@@ -18,8 +18,19 @@ class Customer extends Component {
             isCustomerModal:false,
             isCreaterMedal: false,
             page_title:"Team",
+            tableParameter:{
+                start:1,
+                length:10,
+                search:'',
+                startTime:'',
+                endTime:'',
+                order:{
+                    value:'',
+                    order:'desc'
+                },
+            },
+            dataTitle:['name','username',"eamil","role","info"],
             dataList:{
-                title :['name','username',"eamil","role","info"],
                 datalist:[{
                     name:'zhangSan',
                     email:'wqzbxh',
@@ -53,13 +64,14 @@ closeCreateProject=()=>{
 });
 }
   render() {
-    const {page_title,dataList,isCustomerModal,isCreaterMedal} = this.state;
+    const {dataTitle,dataList,isCustomerModal,isCreaterMedal} = this.state;
     return (
         <div className="overflow-y-auto bg-white md:mx-auto  shadow-md  ">
              <SearchBox  edit={<Edit />}  createCustomerBtn={<CreateCustomerBtn />} />
          
             
-            <TableList dataList = {dataList} createProjectBtn={<CreateProjectBtn  />}  projectListBtn = {<ProjectListBtn />}/>
+            <TableList dataList = {dataList}  dataTitle={dataTitle}   handlePageCallback={this.handlePageCallback} createProjectBtn={<CreateProjectBtn  />}  projectListBtn = {<ProjectListBtn />}/>
+          
         </div>    
     );
   }

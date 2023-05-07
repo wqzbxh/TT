@@ -16,8 +16,9 @@ class CostCenterSettings extends Component {
       listMsg: [],// error message
       is_edit: 'disabled',
       edit_text: 'Edit',
+      
+      dataTitle : ['name','street1',"street2","postalCode","city"],
       dataList:{
-        title :['name','street1',"street2","postalCode","city"],
         datalist:[{
             name:'Google LLC',
             street1:'600 Amphitheatre Parkway',
@@ -92,7 +93,7 @@ class CostCenterSettings extends Component {
 
   }
   render() {
-    const { is_edit, edit_text, listMsg,dataList } = this.state;
+    const { is_edit, dataTitle, listMsg,dataList } = this.state;
     return (
       <div className="relative max-w-6xl px-2 bg-white rounded-lg">
         {/* <div className="absolute top-0 right-0">
@@ -102,8 +103,8 @@ class CostCenterSettings extends Component {
           <div className=" border-gray-900/10 pb-12">
                 
               <SearchBox  createCreateCostCenterBtn={<CreateCostCenterBtn />}/>
-               <TableList dataList = {dataList}   />
-              {is_edit === '' ? <BtnCustomize btnText='Save' btnHandleCommit={this.btnHandleCommit} /> : ''}
+              <TableList dataList = {dataList} dataTitle={dataTitle}   />
+              {/* {is_edit === '' ? <BtnCustomize btnText='Save' btnHandleCommit={this.btnHandleCommit} /> : ''} */}
               <ErrorToast listdd={listMsg} upErrorListComback={this.upErrorList} />
           
           </div>

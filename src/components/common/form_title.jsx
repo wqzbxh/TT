@@ -5,9 +5,11 @@ class FormTitle extends Component {
   closeModalForm = () => {
     this.props.closeModal();
   };
+  saveFormCommit = () => {
+    this.props.saveFormCommit();
+  };
   render() {
     const {titleTxt} = this.props;
-    console.log(titleTxt)
     return (
      <div className="text-right flex px-6  bg-white">
         <div className="subpixel-antialiased text-2xl font-semibold flex-grow h-16 text-center">
@@ -16,7 +18,7 @@ class FormTitle extends Component {
         <div className="flex-none px-2 h-16 ...">
           <span
             className="iconfont icon-a-shouye-fuben_tijiaochenggong      hover:text-green-500  text-2xl text-gray-900"
-            onClick={this.saveTimePlan}
+            onClick={this.saveFormCommit}
           ></span>
         </div>
         <div className="flex-none px-1 h-16 ...">

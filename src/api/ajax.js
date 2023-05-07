@@ -6,8 +6,6 @@ import axios from "axios";
 import memoryUtils from "../utils/memoryUtils";
 
 export default function ajax(url,data = {},type='GET',isContainsFiles = false){
-   
-   console.log(1)
     const token = memoryUtils.user.token;
     return new Promise((resolve,reject)=>{
         let promise;

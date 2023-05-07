@@ -6,6 +6,7 @@ class TableList extends Component {
 
   state={
     selectedRows:[],
+    page_length:15,
     dataList:{
         title :['name','username',"eamil","role","info"],
         itemsPerPage:10,
@@ -37,9 +38,13 @@ class TableList extends Component {
           this.setState({ selectedRows });
         }
       };
+  handlePageCallback =(page)=> {
+      this.props.handlePageCallback(page)
+  }
   render() {
-    const {dataList} = this.props;
-    const { selectedRows } = this.state;
+    const {dataList,dataTitle} = this.props;
+    const { selectedRows,page_length } = this.state;
+    console.log(dataList,dataTitle)
     return (
     <div className="overflow-y-auto md:mx-auto  rounded-md  shadow-md">
         <div className="py-3"></div>
@@ -50,7 +55,7 @@ class TableList extends Component {
                          <td className='px-2'>    
                             <input type="checkbox"  checked={selectedRows.length === dataList.datalist.length} onChange={this.toggleSelectAll}   className="h-4 w-4 border-gray-700 rounded text-gray-900 focus:outline-none focus:border-gray-900" />
                         </td>
-                    {dataList.title.map((title_item, title_index) =>{
+                    {dataTitle.map((title_item, title_index) =>{
                          return ( <th  scope="col" key={title_index}    className="px-6 py-3 text-left text-sm  text-gray-600 uppercase tracking-wider" >{title_item}  </th>)
                     } ) } 
                     </tr>
@@ -64,10 +69,10 @@ class TableList extends Component {
                               <input type="checkbox" checked={selectedRows.includes(dataList.datalist[row])}  onChange={() => this.toggleSelectRow(dataList.datalist[row])} id="is_ldap" name="is_ldap" className="h-4 w-4 px-2 border-gray-700 rounded text-gray-900 focus:outline-none focus:border-gray-900" />
                             </td>
                             
-                        {dataList.title.map((title_item, title_index) =>{
+                        {dataTitle.map((title_item, title_index) =>{
                             return (
                                 <td className="px-6 py-3 whitespace-wrap  break-all" key={title_index}>
-                                    {item[title_item]}{row}{selectedRows.includes(dataList.datalist[row])}
+                                    {item[title_item]}
                                 </td> 
                             )
                         } )} 
@@ -83,7 +88,7 @@ class TableList extends Component {
                 </tbody>
                 </table>
              
-                <Pagination  totalItems={dataList.totalItems} itemsPerPage={dataList.itemsPerPage}/>
+                <Pagination  totalItems={dataList.totalItems} itemsPerPage={page_length}  handlePageCallback={this.handlePageCallback} />
         </div>
     </div>
     );

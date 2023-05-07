@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import BtnCustomize from "../../components/common/btn";
-import { isNotEmpty, isNumber } from "../../utils/validataUnits";
 import { regSetCompany } from "../../api";
 import ErrorToast from "../../components/ErrorMessage";
 import EditBtnCustomize from "../../components/common/btn_edit";

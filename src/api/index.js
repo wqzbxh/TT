@@ -13,4 +13,5 @@ export const regLogout = () => ajax(Host+'/logout',{},'POST')
 export const regCreateTimesheet = (data) => ajax(Host+'/create_timesheet',data,'POST')
 //设置公司信息 Set company information
 export const regSetCompany= (data) => ajax(Host+'/set_company',data,'POST',true)
+export const regTestlist= (data) => ajax(Host+'/test_list',data,'POST',true)
  
