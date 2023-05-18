@@ -6,6 +6,27 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "873462",
+      "name": "地域分布",
+      "font_class": "diyufenbu",
+      "unicode": "e672",
+      "unicode_decimal": 58994
+    },
+    {
+      "icon_id": "2012071",
+      "name": "金币",
+      "font_class": "qian",
+      "unicode": "e674",
+      "unicode_decimal": 58996
+    },
+    {
+      "icon_id": "18020195",
+      "name": "种类",
+      "font_class": "zhonglei",
+      "unicode": "e675",
+      "unicode_decimal": 58997
+    },
+    {
       "icon_id": "4734170",
       "name": "处理中",
       "font_class": "ic_wait",

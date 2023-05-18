@@ -35,10 +35,10 @@ class Home extends Component {
           <div className="flex items-center">
             <div className="ml-4">
               <div className="text-sm font-medium text-gray-900">
-                Website Redesign
+                Website Redesign  
               </div>
               <div className="text-sm text-gray-500">
-                UI/UX Design
+                UI/UX Designsadsad324
               </div>
             </div>
           </div>

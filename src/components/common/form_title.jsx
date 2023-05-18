@@ -11,19 +11,19 @@ class FormTitle extends Component {
   render() {
     const {titleTxt} = this.props;
     return (
-     <div className="text-right flex px-6  bg-white">
+     <div className="text-right  pt-4 pr-3 flex rounded-tr-lg rounded-tl-lg   bg-gray-200">
         <div className="subpixel-antialiased text-2xl font-semibold flex-grow h-16 text-center">
         { titleTxt ? titleTxt : " Create New Item"}
         </div>
-        <div className="flex-none px-2 h-16 ...">
+        <div  className="flex-none px-2 h-16 ...">
           <span
-            className="iconfont icon-a-shouye-fuben_tijiaochenggong      hover:text-green-500  text-2xl text-gray-900"
+            className="iconfont icon-a-shouye-fuben_tijiaochenggong   text-customize-success  hover:text-customize-complementary  text-2xl"
             onClick={this.saveFormCommit}
           ></span>
         </div>
         <div className="flex-none px-1 h-16 ...">
           <span
-            className="iconfont  text-2xl  text-gray-900  hover:text-red-500 icon-a-shouye-fuben_tishicuowu"
+            className="iconfont  text-2xl  text-customize-alert  hover:text-customize-primary-2 icon-a-shouye-fuben_tishicuowu"
             onClick={this.closeModalForm}
           ></span>
         </div>

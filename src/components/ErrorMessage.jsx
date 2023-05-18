@@ -1,34 +1,30 @@
 import React, { Component } from 'react';
 
 class ErrorToast extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      list: [],
-    };
-  }
+  timer = null;
+
+  state = {
+    list: [],
+  };
 
   componentDidMount() {
-    setInterval(() => {
+    this.timer = setInterval(() => {
       const { list } = this.state;
       if (list.length > 0) {
-        this.props.upErrorListComback(list.slice(1))
-        this.setState({
-          list: list.slice(1),
-        });
+        const newList = [...list.slice(1)];
+        this.props.upErrorListComback(newList);
+        this.setState({ list: newList });
       }
-    }, 3000);
+    }, 5000);
   }
 
   componentWillUnmount() {
-    clearTimeout(this.timer);
+    clearInterval(this.timer);
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.listdd !== this.props.listdd) {
-      this.setState({
-        list: this.props.listdd,
-      });
+      this.setState({ list: this.props.listdd });
     }
   }
 
@@ -36,16 +32,16 @@ class ErrorToast extends Component {
     const { list } = this.state;
     const newList = [...list];
     newList.splice(index, 1);
-    this.props.upErrorListComback(newList)
+    this.props.upErrorListComback(newList);
     this.setState({ list: newList });
-  }
+  };
 
   render() {
     const { list } = this.state;
-    const errorCss =  {
+    const errorCss = {
       position: 'fixed',
       bottom: '20px',
-      right: '20px'
+      right: '20px',
     };
     return (
       <div style={errorCss}>

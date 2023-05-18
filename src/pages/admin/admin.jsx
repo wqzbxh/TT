@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate,Link } from 'react-rou
 import Home from "../home/home";
 import Settings from "../setting/setting";
 import LeftNav from "../../components/left/left-nav";
+import memoryUtils from "../../utils/memoryUtils";
 import './admin.css'
 import Project from "../project/project";
 import Track from "../tracker/track";
@@ -11,6 +12,9 @@ import Customer from "../customer/customer";
 import Statistics from "../statistics/statistics";
 import HeaderNav from "../../components/header/header";
 import ProjectReport from "../statistics/project_report";
+import Planne from "../Planne/planne";
+import PlanneTime from "../Planne/planne time";
+import PlanneTask from "../Planne/planne task";
 class Admin extends Component {
     constructor(props) {
         super(props);
@@ -29,7 +33,12 @@ class Admin extends Component {
     };
 
     render() {
-     
+        const user = memoryUtils.user;
+        if (!user.username) {
+          const userData = {};
+          // 自动跳转登录
+          return <Navigate to="/login" />;
+        }
         return (
             <div className="bg-gray-100 h-screen  text-sm" >
                 <div className="flex flex-col  lg:flex-row">
@@ -48,6 +57,9 @@ class Admin extends Component {
                                 <Route path="/setting" element={<Settings />} />
                                 <Route path="/tracker" element={<Track />} />
                                 <Route path="/projects" element={<Project />} />
+                                <Route path="/planne" element={<Planne />} />
+                                <Route path="/planne_time" element={<PlanneTime />} />
+                                <Route path="/planne_task" element={<PlanneTask />} />
                                  <Route path="/team" element={<Team />} />
                                 <Route path="/customer" element={<Customer />} />
                                 <Route path="/statistics" element={<Statistics />} />

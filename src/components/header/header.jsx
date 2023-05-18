@@ -1,16 +1,41 @@
-import React, { useState, Component } from "react";
-import { Navigate,Link  } from "react-router-dom";
+import React, { Component } from "react";
+import {  Navigate } from 'react-router-dom';
 
 import logo from "../../public/image/logo.png";
+import ErrorToast from "../../components/ErrorMessage";
+import { regLogout } from "../../api";
+import localstorageUnits from "../../utils/localstorageUnits";
 
 class HeaderNav extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      listD: [],
       showLogout: false, // 默认不显示退出按钮
     };
+    this.loginOut = this.loginOut.bind(this);
   }
+  loginOut=async ()=>{
+      
+    const response = await regLogout();
+    const result = response.data;
+    if (result.code === 200) {
+        localstorageUnits.saveUser({});
+        window.location.href='/login';
+    } else {
+        //登陆失败
+        console.log(result)
+        this.setState(prevState => ({
+            listD: [...prevState.listD, { 'msg': result.msg, color: '#FF5733' }],
+        }));
+    }
+  }
+
   render() {
+    const {listD } = this.state;
+    if (this.state.isLogout) {
+      return <Navigate to="/login" />;
+    }
     return (
       <>
         <div className="px-3 flex relative  text-center items-center  flex-row-reverse  h-16 mx-auto   ">
@@ -37,13 +62,14 @@ class HeaderNav extends Component {
           {this.state.showLogout && (
           <div className="divide-y text-left absolute top-16 right-20 bg-white rotate-4 z-50   px-4  border cursor-pointer rounded-sm ">
               <div className="py-2 leading-5  rotate-4 ">
-                <button className="transition duration-300 ease-in-out ..."><span className="iconfont icon-tuichudenglu2 text-xl px-2"></span>Sign out</button>
+                <button onClick={this.loginOut} className="transition duration-300 ease-in-out ..."><span className="iconfont icon-tuichudenglu2 text-xl px-2"></span>Sign out</button>
               </div>
               {/* <div className="py-2">
                <Link to="/"><button className="transition duration-300 ease-in-out ..."><span className="iconfont icon-employees_icon text-xl px-2"></span>   </button></Link>
               </div> */}
           </div>
           )}
+            <ErrorToast listdd={listD} upErrorListComback={this.upErrorList} />
         </div>
       </>
     );

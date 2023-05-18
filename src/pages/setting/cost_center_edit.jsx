@@ -3,24 +3,26 @@ import 'react-datepicker/dist/react-datepicker.css';
 import ErrorToast from '../../components/ErrorMessage';
 import { regCostcenterSetting } from "../../api";
 import FormTitle from '../../components/common/form_title';
-class CreateCostCenter extends Component {
+class EditCostCenter extends Component {
   constructor(props) {
     super(props);
     // 初始状态为第一个菜单项选中
     this.state = {
       isVisible: false,
       listMsg: [],
-      title: 'Create New CostCenter',
-      name:'',
-      city:'',
-      postalCode:'',
-      street1:'',
-      street2:'',
+      title: 'Edit  CostCenter ....',
+      name:this.props.currentData.name,
+      city:this.props.currentData.city,
+      postalCode:this.props.currentData.postalCode,
+      street1:this.props.currentData.street1,
+      street2:this.props.currentData.street2,
+      id_costcenter:this.props.currentData.id_costcenter,
     };
   }
 
   closeModalSon = () => {
     this.props.closeModal();
+    this.props.Refresh();
   };
 
   /*********处理表数据 */
@@ -37,15 +39,16 @@ class CreateCostCenter extends Component {
    * 提交数据
    */
   saveFormCommit= async ()=>{
-    const {listMsg,name,city,postalCode,street1,street2 } = this.state;
+    const {listMsg,name,city,postalCode,id_costcenter,street1,street2 } = this.state;
     let formData = {
       name:name,
       city:city,
+      id:id_costcenter,
       postalCode:postalCode,
       street1:street1,
       street2:street2,
     }
-    const response = await regCostcenterSetting(formData,'POST');
+    const response = await regCostcenterSetting(formData,'PUT');
     const result = response.data;
     if (result.code === 200) {
       this.setState(prevState => ({
@@ -75,17 +78,16 @@ class CreateCostCenter extends Component {
     const { isVisible } = this.props;
     if (!isVisible) return null
     return (
-      <div className="fixed bg-gray-500 bg-opacity-75 inset-0 z-50 overflow-auto bg-black-transparen overflow-y-auto">
+      <div className="fixed  bg-gray-500 bg-opacity-75 inset-0 z-50 overflow-auto bg-black-transparen overflow-y-auto">
         <div className="flex items-center justify-center  h-3/4  mt-2 min-h-screen">
-          <div className="relative h-3/5 text-gray-800 rounded-lg w-3/5">
-
+          <div className="relative h-3/5 text-gray-800 rounded-lg w-3/5 ">
             <div className="px-2 text-left">
               <div className="w-full  mx-auto">
                   <FormTitle closeModal={this.closeModalSon} saveFormCommit={this.saveFormCommit} titleTxt={title} />
                 <form className="bg-white shadow-lg  px-8 pt-6 pb-8 mb-4">
                   <div className="sm:col-span-4">
                     <label htmlFor="companyPostalCode" className="block text-sm font-medium leading-6 text-customize-dark-19">  name </label>
-                    <div className="mt-2 relative">
+                    <div className="relative">
                       <div class="absolute inset-y-0 left-0 flex items-center  ">
                         <span class="iconfont icon-leixing px-4"></span>
                       </div>
@@ -100,9 +102,9 @@ class CreateCostCenter extends Component {
                     </div>
                   </div>
                   
-                  <div className="col-span-full">
+                  <div className="col-span-full mt-2 ">
                     <label htmlFor="companyPostalCode" className="block text-sm font-medium leading-6 text-customize-dark-19"> city </label>
-                    <div className="mt-2 relative ">
+                    <div className="relative ">
                       <div class="absolute inset-y-0 left-0 flex items-center  ">
                         <span class="iconfont icon-leixing px-4"></span>
                       </div>
@@ -116,9 +118,9 @@ class CreateCostCenter extends Component {
                         className="block  rounded-md focus:border-gray-500 -webkit-inner-spin-button -webkit-outer-spin-button border-0 py-1.5 pl-14 w-1/3 text-customize-dark-19 shadow-sm ring-1 ring-inset  ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customize-dark-19 sm:text-sm sm:leading-6" />
                     </div>
                   </div>
-                  <div className="sm:col-span-4">
+                  <div className="sm:col-span-4 mt-2">
                     <label htmlFor="companyPostalCode" className="block text-sm font-medium leading-6 text-customize-dark-19">  postalCode </label>
-                    <div className="mt-2 relative">
+                    <div className=" relative">
                       <div class="absolute inset-y-0 left-0 flex items-center  ">
                         <span class="iconfont icon-leixing px-4"></span>
                       </div>
@@ -132,9 +134,9 @@ class CreateCostCenter extends Component {
                         className="block  rounded-md focus:border-gray-500 -webkit-inner-spin-button -webkit-outer-spin-button border-0 py-1.5 pl-14 w-1/3 text-customize-dark-19 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customize-dark-19 sm:text-sm sm:leading-6" />
                     </div>
                   </div>
-                  <div className="sm:col-span-4">
+                  <div className="sm:col-span-4 mt-2 ">
                     <label htmlFor="companyPostalCode" className="block text-sm font-medium leading-6 text-customize-dark-19">  street1 </label>
-                    <div className="mt-2 relative">
+                    <div className="relative">
                       <div class="absolute inset-y-0 left-0 flex items-center  ">
                         <span class="iconfont icon-leixing px-4"></span>
                       </div>
@@ -148,9 +150,9 @@ class CreateCostCenter extends Component {
                         className="block  rounded-md  w-3/5 focus:border-gray-500 -webkit-inner-spin-button -webkit-outer-spin-button border-0 py-1.5 pl-14 w-1/3 text-customize-dark-19 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-customize-dark-19 sm:text-sm sm:leading-6" />
                     </div>
                   </div>
-                  <div className="sm:col-span-full">
+                  <div className="sm:col-span-full mt-2 ">
                     <label htmlFor="companyPostalCode" className="block text-sm font-medium leading-6 text-customize-dark-19">  street2 </label>
-                    <div className="mt-2 relative">
+                    <div className="relative">
                       <div class="absolute inset-y-0 left-0 flex items-center  ">
                         <span class="iconfont icon-leixing px-4"></span>
                       </div>
@@ -182,4 +184,4 @@ class CreateCostCenter extends Component {
   }
 }
 
-export default CreateCostCenter;
+export default EditCostCenter;

@@ -32,7 +32,7 @@ class Statistics extends Component {
     ];
     return (
       <div className="bg-gray-100 md:mx-auto">
-         <Tab tabs={tabs} />
+         <Tab tabs={tabs}  className="Statistics" />
     </div>
     );
   }

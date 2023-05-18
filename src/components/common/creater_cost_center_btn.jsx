@@ -13,6 +13,7 @@ class CreateCostCenterBtn extends Component {
     this.setState({
       isCustomerModal: false,
     });
+    this.props.Refresh()
   };
   /***********打开添加框 */
   /***********Open the add box */
@@ -21,6 +22,7 @@ class CreateCostCenterBtn extends Component {
   };
   render() {
     const { page_title, dataList, isCustomerModal, isCreaterMedal } =  this.state;
+    const {titleTxt} = this.props
     return (
       <div className="rounded-2xl px-2">
         <div
@@ -32,6 +34,7 @@ class CreateCostCenterBtn extends Component {
         <CreateCostCenter
           isVisible={isCustomerModal}
           closeModal={this.closeCustomerData}
+          titleTxt={titleTxt}
         />
       </div>
     );

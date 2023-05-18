@@ -18,3 +18,13 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+/* 菜单项容器元素的折叠样式 */
+.collapsed {
+  width: 56px;
+}
+
+/* 子菜单容器元素的折叠样式 */
+.submenu.collapsed {
+  display: none;
+}

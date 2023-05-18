@@ -12,12 +12,16 @@ import Team from './pages/team/team';
 import Customer from './pages/customer/customer';
 import Statistics from './pages/statistics/statistics';
 import ProjectReport from './pages/statistics/project_report';
-
+import { IntlProvider  } from 'react-intl';
+import messages from './public/locales'
+import Planne from './pages/Planne/planne';
+import PlanneTime from './pages/Planne/planne time';
+import PlanneTask from './pages/Planne/planne task';
 
 export default class App extends Component{
-  
   render(){
       return (
+        <IntlProvider locale="en" messages={messages['CN']}>
           <BrowserRouter>
               <Routes>
                   <Route path="/login" Component={Login}></Route>
@@ -28,12 +32,16 @@ export default class App extends Component{
                         <Route path="/tracker" element={<Track />} />
                         <Route path="/projects" element={<Project />} />
                         <Route path="/team" element={<Team />} />
+                        <Route path="/planne" element={<Planne />} />
+                        <Route path="/planne_time" element={<PlanneTime />} />
+                          <Route path="/planne_task" element={<PlanneTask />} />
                         <Route path="/customer" element={<Customer />} />
                         <Route path="/statistics" element={<Statistics />} />
                         <Route path="/project_report" element={<ProjectReport />} />
                   </Route>
               </Routes>
           </BrowserRouter>
+        </IntlProvider>
       )
   
   }

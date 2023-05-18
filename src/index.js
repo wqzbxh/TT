@@ -4,6 +4,10 @@ import { createRoot} from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import localstorageUnits from "./utils/localstorageUnits";
+import memoryUtils from "./utils/memoryUtils";
+const user = localstorageUnits.getUser();
+memoryUtils.user = user;
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 
